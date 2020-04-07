@@ -19,3 +19,15 @@ def add_gender_age(train_df, users_df):
     merged_df['age'] = cur_year - pd.to_numeric(merged_df['age'])
     merged_df['gender'] = merged_df['gender'].ffill().bfill()
     return merged_df
+
+def get_event_attendee_nums(event_attendees):
+    event_attendee_nums_df = event_attendees[['event']]
+    event_attendee_nums_df = pd.concat([event_attendee_nums_df, 
+                                        event_attendees['yes'].str.len(),
+                                        event_attendees['no'].str.len(),
+                                        event_attendees['maybe'].str.len(),
+                                        event_attendees['invited'].str.len()], axis=1)
+    # print(event_attendee_nums_df.head(20))
+    event_attendee_nums_df = event_attendee_nums_df.fillna(0)
+    return event_attendee_nums_df
+    # print(event_attendees['yes'].str.len())
