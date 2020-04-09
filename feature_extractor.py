@@ -4,6 +4,27 @@ import matplotlib as plt
 import seaborn as sns
 import datetime as dt
 
+def is_event_creator_friend(row):
+    if (type(row['friends']) != str):
+        return False
+    
+    if row['creator_id'] in row['friends'].split():
+        return True
+    else:
+        return False
+
+
+def add_event_creator_friend_feature(train_df, events_df, friends_df):
+    events_df = events_df[['event_id', 'user_id']]
+    merged_df = pd.merge(train_df, events_df, how='inner', left_on='event', right_on='event_id', suffixes=('', '_event'))
+    
+    merged_df = merged_df.rename(columns={'user_id': 'creator_id'})
+    merged_df2 = pd.merge(merged_df, friends_df, how='inner', left_on='user', right_on='user', suffixes=('','_friends'))
+    
+    merged_df2['is_creator_friend'] = merged_df2.apply (lambda row: is_event_creator_friend(row), axis=1)
+    merged_df2 = merged_df2.drop(columns=['friends'])
+    return merged_df2
+    
 def is_same_city(row):
     if (type(row['location']) != str) or (type(row['city']) != str):
         return False
