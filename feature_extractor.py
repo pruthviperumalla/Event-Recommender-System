@@ -4,10 +4,44 @@ import matplotlib as plt
 import seaborn as sns
 import datetime as dt
 
+def is_same_city(row):
+    if (type(row['location']) != str) or (type(row['city']) != str):
+        return False
+    
+    if row['location'].lower() in 'na' or row['city'].lower() in 'na':
+        return False
+    
+    if str(row['city']).lower() in row['location'].lower():
+        return True
+    else:
+        return False
+
+def is_same_country(row):
+    if (type(row['location']) != str) or (type(row['country']) != str):
+        return False
+    
+    if row['location'].lower() in 'na' or row['country'].lower() in 'na':
+        return False
+        
+    if row['country'].lower() in row['location'].lower():
+        return True
+    else:
+        return False
+    
+    return row
+
+    
 def add_location_features(train_df, events_df, users_df):
     events_df = events_df[['event_id', 'city', 'country']]
     merged_df = pd.merge(train_df, events_df, how='inner', left_on='event', right_on='event_id', suffixes=('', '_event'))
-    return merged_df
+    
+    merged_df2 = pd.merge(merged_df, users_df, how='inner', left_on='user', right_on='user_id', suffixes=('','_user'))
+    
+    merged_df2['same_city'] =  merged_df2.apply (lambda row: is_same_city(row), axis=1)
+    merged_df2['same_country'] = merged_df2.apply (lambda row: is_same_country(row), axis=1)
+    merged_df2 = merged_df2[['invited', 'timestamp', 'interested', 'not_interested', 'event', 'same_city',
+                            'same_country', 'user']]
+    return merged_df2
 
 def add_gender_age(train_df, users_df):
     users_df = users_df[['user_id', 'birthyear', 'gender']]
