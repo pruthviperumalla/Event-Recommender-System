@@ -67,7 +67,7 @@ def add_location_features(train_df, events_df, users_df):
     
     merged_df2['same_city'] =  merged_df2.apply (lambda row: is_same_city(row), axis=1)
     merged_df2['same_country'] = merged_df2.apply (lambda row: is_same_country(row), axis=1)
-    merged_df2 = merged_df2[['invited', 'timestamp', 'interested', 'not_interested', 'event', 'same_city',
+    merged_df2 = merged_df2[['timestamp', 'interested', 'not_interested', 'event', 'same_city',
                             'same_country', 'user']]
     return merged_df2
 
@@ -87,6 +87,6 @@ def get_event_attendee_nums(train_df, event_attendees_df):
     merged_df['yes'] = merged_df['yes'].str.len()
     merged_df['no'] = merged_df['no'].str.len()
     merged_df['maybe'] = merged_df['maybe'].str.len()
-    merged_df['invited_y'] = merged_df['invited_y'].str.len()
+    merged_df['invited'] = merged_df['invited'].str.len()
 
     return merged_df
