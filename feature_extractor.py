@@ -117,8 +117,20 @@ def get_friends_status(row, event_attendees_df):
 def get_friends_attendee_nums(train_df, friends_df, event_attendees_df):
     # merge train_df with friends_df
     merged_df = pd.merge(train_df, friends_df, how='inner', left_on='user', right_on='user')
-    merged_df['friends_attending'], merged_df['friends_not_attending'], merged_df['friends_maybe_attending'], merged_df['friends_invited'] = zip(*merged_df.apply(lambda row: get_friends_status(row, event_attendees_df), axis=1))
-    # delete friends column
-    merged_df = merged_df.drop(['friends'], axis=1)
+    merged_df['f7'], merged_df['f8'], merged_df['f9'], merged_df['f10'] = zip(*merged_df.apply(lambda row: get_friends_status(row, event_attendees_df), axis=1))
+    # convert friends column to number of friends
+    merged_df['friends'] = merged_df['friends'].str.len()
     return merged_df
+
+def get_friends_attendee_ratios(train_df):
+    train_df['f11'] = train_df['f8'] / train_df['f7']
+    train_df['f12'] = train_df['f9'] / train_df['f7']
+    train_df['f13'] = train_df['f10'] / train_df['f7']
+    train_df['f14'] = train_df['f7'] / train_df['friends']
+    train_df['f15'] = train_df['f8'] / train_df['friends']
+    train_df['f16'] = train_df['f9'] / train_df['friends']
+    train_df['f17'] = train_df['f10'] / train_df['friends']
+    train_df['f18'] = train_df['no'] / train_df['invited']
+    train_df = train_df.replace([np.inf, -np.inf, np.nan], 0)
+    return train_df
     
