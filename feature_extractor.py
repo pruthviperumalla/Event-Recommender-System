@@ -88,5 +88,8 @@ def get_event_attendee_nums(train_df, event_attendees_df):
     merged_df['no'] = merged_df['no'].str.len()
     merged_df['maybe'] = merged_df['maybe'].str.len()
     merged_df['invited'] = merged_df['invited'].str.len()
+    merged_df['f4'] = merged_df['no'] / merged_df['yes']
+    merged_df['f5'] = merged_df['maybe'] / merged_df['yes']
+    merged_df['f6'] = merged_df['invited'] / merged_df['yes']
 
     return merged_df
