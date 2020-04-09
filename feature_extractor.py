@@ -93,3 +93,32 @@ def get_event_attendee_nums(train_df, event_attendees_df):
     merged_df['f6'] = merged_df['invited'] / merged_df['yes']
 
     return merged_df
+
+def get_friends_status(row, event_attendees_df):
+    # print(row)
+    event = row['event']
+    friends = str(row['friends']).split(' ')
+    #
+    ppl_attending = str(event_attendees_df.iloc[np.where(event_attendees_df['event']==event)[0][0]]['yes']).split(' ')
+    ppl_not_attending = str(event_attendees_df.iloc[np.where(event_attendees_df['event']==event)[0][0]]['no']).split(' ')
+    ppl_maybe_attending = str(event_attendees_df.iloc[np.where(event_attendees_df['event']==event)[0][0]]['maybe']).split(' ')
+    ppl_invited = str(event_attendees_df.iloc[np.where(event_attendees_df['event']==event)[0][0]]['invited']).split(' ')
+    #
+    friends_attending = list(set(friends).intersection(set(ppl_attending)))
+    friends_not_attending = list(set(friends).intersection(set(ppl_not_attending)))
+    friends_maybe_attending = list(set(friends).intersection(set(ppl_maybe_attending)))
+    friends_invited = list(set(friends).intersection(set(ppl_invited)))
+    # 
+    # row['friends_attending'] = len(friends_attending)
+    # print(row)
+    # return row
+    return [len(friends_attending), len(friends_not_attending), len(friends_maybe_attending), len(friends_invited)]
+
+def get_friends_attendee_nums(train_df, friends_df, event_attendees_df):
+    # merge train_df with friends_df
+    merged_df = pd.merge(train_df, friends_df, how='inner', left_on='user', right_on='user')
+    merged_df['friends_attending'], merged_df['friends_not_attending'], merged_df['friends_maybe_attending'], merged_df['friends_invited'] = zip(*merged_df.apply(lambda row: get_friends_status(row, event_attendees_df), axis=1))
+    # delete friends column
+    merged_df = merged_df.drop(['friends'], axis=1)
+    return merged_df
+    
