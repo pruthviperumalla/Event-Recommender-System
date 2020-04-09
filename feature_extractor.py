@@ -12,10 +12,15 @@ def is_event_creator_friend(row):
         return True
     else:
         return False
+    
+def time_to_event(row):
+    start_time = dt.datetime.strptime(row['start_time'][:19], "%Y-%m-%dT%H:%M:%S")
+    not_time = dt.datetime.strptime(row['timestamp'][:19], "%Y-%m-%d %H:%M:%S")
+    diff_time = not_time - start_time
+    return diff_time.total_seconds()
 
-
-def add_event_creator_friend_feature(train_df, events_df, friends_df):
-    events_df = events_df[['event_id', 'user_id']]
+def add_event_creator_friend_timestamp_feature(train_df, events_df, friends_df):
+    events_df = events_df[['event_id', 'user_id', 'start_time']]
     merged_df = pd.merge(train_df, events_df, how='inner', left_on='event', right_on='event_id', suffixes=('', '_event'))
     
     merged_df = merged_df.rename(columns={'user_id': 'creator_id'})
@@ -23,6 +28,8 @@ def add_event_creator_friend_feature(train_df, events_df, friends_df):
     
     merged_df2['is_creator_friend'] = merged_df2.apply (lambda row: is_event_creator_friend(row), axis=1)
     merged_df2 = merged_df2.drop(columns=['friends'])
+    
+    merged_df2['not_start_diff'] = merged_df2.apply (lambda row: time_to_event(row), axis=1)
     return merged_df2
     
 def is_same_city(row):
