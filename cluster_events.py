@@ -24,4 +24,9 @@ def get_clusters(events_df, k):
     event_clusters = pd.concat([event_ids, clusters], axis=1, join='inner')
     event_clusters.columns = ['event_id', 'cluster']
 
+    centers = km.cluster_centers_
+    ids = clusters.to_numpy().reshape(-1)
+    event_centroids = centers[ids]
+    event_clusters['centroid'] = event_centroids.tolist()
+
     return event_clusters

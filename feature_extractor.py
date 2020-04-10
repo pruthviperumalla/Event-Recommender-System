@@ -136,7 +136,11 @@ def get_friends_attendee_ratios(train_df):
     train_df = train_df.replace([np.inf, -np.inf, np.nan], 0)
     return train_df
     
-def get_user_attendance(event_attendees_df):
+def get_user_attendance(event_attendees_df, events_df):
+    events_df = events_df.rename(columns = {'event_id': 'event'})
+    events_df = events_df['event']
+    event_attendees_df = pd.merge(event_attendees_df, events_df, on = 'event')
+
     # process yes
     user_attendance_yes = {}
     user_attendance_maybe = {}
@@ -193,3 +197,71 @@ def get_user_attendance(event_attendees_df):
     user_attendance_invited = user_attendance_invited.astype({'user':'int64'})
 
     return (user_attendance_yes, user_attendance_maybe, user_attendance_no, user_attendance_invited)
+
+def get_event_centroids(event_clusters, events):
+    centroids = (event_clusters[event_clusters['event_id'].isin(events)]['centroid']).to_numpy(dtype=object)
+    return np.vstack(centroids[:])
+
+def get_cluster_sim_by_user_attendance(train_data, event_clusters, user_attendance_yes, user_attendance_maybe, user_attendance_no, user_attendance_invited):
+    n = train_data.shape[0]
+    sim_yes_cluster = np.zeros(n)
+    sim_maybe_cluster = np.zeros(n)
+    sim_no_cluster = np.zeros(n)
+    sim_invited_cluster = np.zeros(n)
+
+    train_interim = pd.merge(train_data, user_attendance_yes, how = 'left', on = 'user', suffixes=('', '_events'))
+    train_interim = pd.merge(train_interim, user_attendance_maybe, how = 'left', on = 'user', suffixes=('', '_events'))
+    train_interim = pd.merge(train_interim, user_attendance_no, how = 'left', on = 'user', suffixes=('', '_events'))
+    train_interim = pd.merge(train_interim, user_attendance_invited, how = 'left', on = 'user', suffixes=('', '_events'))
+
+    for k, row in train_interim.iterrows():
+        cur_user = row.user
+        cur_event = row.event
+        cur_cluster_center = get_event_centroids(event_clusters, [cur_event])
+
+        # similarity by users interested - yes
+        isna = pd.isnull(row.yes_events)
+        if (isinstance(isna, (bool)) and isna == True) or (not isinstance(isna, (bool)) and isna.all()):
+            sim_yes_cluster[k] = None
+        else:
+            events = row.yes_events
+            events_centers = get_event_centroids(event_clusters, events)
+            dist = np.sum(cdist(cur_cluster_center, events_centers))/events_centers.shape[0]
+            sim_yes_cluster[k] = dist
+
+        # similarity by users interested - maybe
+        isna = pd.isnull(row.maybe_events)
+        if (isinstance(isna, (bool)) and isna == True) or (not isinstance(isna, (bool)) and isna.all()):
+            sim_maybe_cluster[k] = None
+        else:
+            events = row.maybe_events
+            events_centers = get_event_centroids(event_clusters, events)
+            dist = np.sum(cdist(cur_cluster_center, events_centers))/events_centers.shape[0]
+            sim_maybe_cluster[k] = dist
+
+        # similarity by users interested - no
+        isna = pd.isnull(row.no_events)
+        if (isinstance(isna, (bool)) and isna == True) or (not isinstance(isna, (bool)) and isna.all()):
+            sim_no_cluster[k] = None
+        else:
+            events = row.no_events
+            events_centers = get_event_centroids(event_clusters, events)
+            dist = np.sum(cdist(cur_cluster_center, events_centers))/events_centers.shape[0]
+            sim_no_cluster[k] = dist
+
+        # similarity by users interested - invited
+        isna = pd.isnull(row.invited_events)
+        if (isinstance(isna, (bool)) and isna == True) or (not isinstance(isna, (bool)) and isna.all()):
+            sim_invited_cluster[k] = None
+        else:
+            events = row.invited_events
+            events_centers = get_event_centroids(event_clusters, events)
+            dist = np.sum(cdist(cur_cluster_center, events_centers))/events_centers.shape[0]
+            sim_invited_cluster[k] = dist
+
+    train_data['sim_yes_cluster'] = sim_yes_cluster
+    train_data['sim_maybe_cluster'] = sim_maybe_cluster
+    train_data['sim_no_cluster'] = sim_no_cluster
+    train_data['sim_invited_cluster'] = sim_invited_cluster
+
+    return train_data
