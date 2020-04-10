@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib as plt
 import seaborn as sns
 import datetime as dt
+import math
 
 def is_event_creator_friend(row):
     if (type(row['friends']) != str):
@@ -134,3 +135,56 @@ def get_friends_attendee_ratios(train_df):
     train_df = train_df.replace([np.inf, -np.inf, np.nan], 0)
     return train_df
     
+def get_user_attendance(event_attendees_df):
+    # process yes
+    user_attendance_yes = {}
+    user_attendance_maybe = {}
+    user_attendance_no = {}
+    user_attendance_invited = {} 
+
+    for k, row in event_attendees_df.iterrows():
+        if not pd.isnull(row.yes):
+            users = row.yes.split()
+            for user in users:
+                if user in user_attendance_yes:
+                    user_attendance_yes[user].append(row.event)
+                else:
+                    user_attendance_yes[user] = [row.event]
+        
+        if not pd.isnull(row.maybe):
+            users = row.maybe.split()
+            for user in users:
+                if user in user_attendance_maybe:
+                    user_attendance_maybe[user].append(row.event)
+                else:
+                    user_attendance_maybe[user] = [row.event]
+        
+        if not pd.isnull(row.no):
+            users = row.no.split()
+            for user in users:
+                if user in user_attendance_no:
+                    user_attendance_no[user].append(row.event)
+                else:
+                    user_attendance_no[user] = [row.event]
+
+        if not pd.isnull(row.invited):
+            users = row.invited.split()
+            for user in users:
+                if user in user_attendance_invited:
+                    user_attendance_invited[user].append(row.event)
+                else:
+                    user_attendance_invited[user] = [row.event]
+
+    user_a_list = list(user_attendance_yes.items())
+    user_attendance_yes = pd.DataFrame(user_a_list, columns=['user', 'yes'])
+
+    user_a_list = list(user_attendance_maybe.items())
+    user_attendance_maybe = pd.DataFrame(user_a_list, columns=['user', 'maybe'])
+
+    user_a_list = list(user_attendance_no.items())
+    user_attendance_no = pd.DataFrame(user_a_list, columns=['user', 'no'])
+
+    user_a_list = list(user_attendance_invited.items())
+    user_attendance_invited = pd.DataFrame(user_a_list, columns=['user', 'invited'])
+
+    return (user_attendance_yes, user_attendance_maybe, user_attendance_no, user_attendance_invited)
