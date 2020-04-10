@@ -4,6 +4,7 @@ import matplotlib as plt
 import seaborn as sns
 import datetime as dt
 import math
+from scipy.spatial.distance import cdist
 
 def is_event_creator_friend(row):
     if (type(row['friends']) != str):
@@ -177,14 +178,18 @@ def get_user_attendance(event_attendees_df):
 
     user_a_list = list(user_attendance_yes.items())
     user_attendance_yes = pd.DataFrame(user_a_list, columns=['user', 'yes'])
+    user_attendance_yes = user_attendance_yes.astype({'user':'int64'})
 
     user_a_list = list(user_attendance_maybe.items())
     user_attendance_maybe = pd.DataFrame(user_a_list, columns=['user', 'maybe'])
+    user_attendance_maybe = user_attendance_maybe.astype({'user':'int64'})
 
     user_a_list = list(user_attendance_no.items())
     user_attendance_no = pd.DataFrame(user_a_list, columns=['user', 'no'])
+    user_attendance_no = user_attendance_no.astype({'user':'int64'})
 
     user_a_list = list(user_attendance_invited.items())
     user_attendance_invited = pd.DataFrame(user_a_list, columns=['user', 'invited'])
+    user_attendance_invited = user_attendance_invited.astype({'user':'int64'})
 
     return (user_attendance_yes, user_attendance_maybe, user_attendance_no, user_attendance_invited)
