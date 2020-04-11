@@ -339,3 +339,41 @@ def get_cluster_sim_by_user_friends_attendance(train_data, event_clusters, user_
     train_data['sim_friends_no_cluster'] = sim_friends_no_cluster
 
     return train_data
+
+def get_attendance_intersection_score(event1, event2, event_attendees_df):
+    selection1 = event_attendees_df[event_attendees_df.event == event1]
+    selection2 = event_attendees_df[event_attendees_df.event == event2]
+    
+    if (len(selection1)==0 or len(selection2) == 0):
+        return 0
+    
+    users1 = selection1.iloc[0].yes.split()
+    users2 = selection2.iloc[0].yes.split()
+    
+    users1 = [user.strip() for user in users1]
+    users2 = [user.strip() for user in users2]
+    intersection = [user for user in users1 if user in users2]
+    
+    result = len(intersection) * 1.0/ min(len(users1), len(users2))
+    return result
+
+def get_attendance_intersection_count_list(row, event_attendees_df, event_list_column_name):
+    if(type(row[event_list_column_name]) != list):
+        return 0
+    
+    sum = 0
+    for att_event in row[event_list_column_name]:
+        sum = sum + get_attendance_intersection_score(row['event'], att_event, event_attendees_df)
+    
+    return sum
+            
+
+def get_sim_by_user_attendance(train_df, user_attendance_yes, user_attendance_maybe, event_attendees):
+    
+    merged = pd.merge(train_data, user_attendance_yes, how = 'left', on = 'user', suffixes=('', '_yes'))
+    merged = pd.merge(merged, user_attendance_maybe, how = 'left', on = 'user', suffixes=('', '_maybe'))
+    
+    merged['event_att_yes_sim'] = merged.apply (lambda row: get_attendance_intersection_count_list(row, event_attendees, 'yes_yes'), axis=1)
+    merged['event_att_maybe_sim'] = merged.apply (lambda row: get_attendance_intersection_count_list(row, event_attendees, 'maybe_maybe'), axis=1)
+    merged = merged.drop(columns=['yes_yes', 'maybe_maybe'])
+    return merged
