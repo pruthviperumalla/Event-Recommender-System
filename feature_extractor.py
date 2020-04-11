@@ -84,12 +84,18 @@ def add_gender_age(train_df, users_df):
     merged_df['gender'] = merged_df['gender'].ffill().bfill()
     return merged_df
 
+def count_words(row, col_name):
+    if(type(row[col_name]) != str):
+        return 0
+    
+    return len(row[col_name].split())
+        
 def get_event_attendee_nums(train_df, event_attendees_df):
     merged_df = pd.merge(train_df, event_attendees_df, how='inner', left_on='event', right_on='event')
-    merged_df['yes'] = merged_df['yes'].str.len()
-    merged_df['no'] = merged_df['no'].str.len()
-    merged_df['maybe'] = merged_df['maybe'].str.len()
-    merged_df['invited'] = merged_df['invited'].str.len()
+    merged_df['yes'] = merged_df.apply (lambda row: count_words(row, 'yes'), axis=1)
+    merged_df['no'] = merged_df.apply (lambda row: count_words(row, 'no'), axis=1)
+    merged_df['maybe'] = merged_df.apply (lambda row: count_words(row, 'maybe'), axis=1)
+    merged_df['invited'] = merged_df.apply (lambda row: count_words(row, 'invited'), axis=1)
     merged_df['f4'] = merged_df['no'] / merged_df['yes']
     merged_df['f5'] = merged_df['maybe'] / merged_df['yes']
     merged_df['f6'] = merged_df['invited'] / merged_df['yes']
@@ -121,7 +127,7 @@ def get_friends_attendee_nums(train_df, friends_df, event_attendees_df):
     merged_df = pd.merge(train_df, friends_df, how='inner', left_on='user', right_on='user')
     merged_df['f7'], merged_df['f8'], merged_df['f9'], merged_df['f10'] = zip(*merged_df.apply(lambda row: get_friends_status(row, event_attendees_df), axis=1))
     # convert friends column to number of friends
-    merged_df['friends'] = merged_df['friends'].str.len()
+    merged_df['friends'] = merged_df.apply (lambda row: count_words(row, 'friends'), axis=1)
     return merged_df
 
 def get_friends_attendee_ratios(train_df):
