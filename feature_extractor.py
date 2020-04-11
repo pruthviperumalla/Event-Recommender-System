@@ -265,3 +265,77 @@ def get_cluster_sim_by_user_attendance(train_data, event_clusters, user_attendan
     train_data['sim_invited_cluster'] = sim_invited_cluster
 
     return train_data
+
+def get_events_by_user_list(user_list, user_attendance, column_name):
+    events = user_attendance[user_attendance['user'].isin(user_list)][column_name].dropna().to_numpy()
+    if len(events) == 0:
+        return events
+    return np.concatenate(events[:])
+
+def get_cluster_sim_by_user_friends_attendance(train_data, event_clusters, user_friends, user_attendance_yes, user_attendance_maybe, user_attendance_no, user_attendance_invited):
+    n = train_data.shape[0]
+    sim_friends_yes_cluster = np.zeros(n)
+    sim_friends_maybe_cluster = np.zeros(n)
+    sim_friends_no_cluster = np.zeros(n)
+    friends_events_yes_cache = {}
+    friends_events_no_cache = {}
+    friends_events_maybe_cache = {}
+
+    train_interim = pd.merge(train_data, user_friends, how = 'left', on = 'user', suffixes = ('', '_user'))
+
+    for k, row in train_interim.iterrows():
+        cur_user = row.user
+        cur_event = row.event
+        cur_cluster_center = get_event_centroids(event_clusters, [cur_event])
+
+        if(pd.isnull(row.friends_user)):
+            sim_friends_yes_cluster[k] = None
+            sim_friends_maybe_cluster[k] = None
+            sim_friends_no_cluster[k] = None
+            continue
+        
+        cur_friends = row.friends_user.split()
+
+        if cur_user in friends_events_yes_cache:
+            yes_events = friends_events_yes_cache[cur_user]
+            maybe_events = friends_events_maybe_cache[cur_user]
+            no_events = friends_events_no_cache[cur_user]
+            
+        else:
+            yes_events = get_events_by_user_list(cur_friends, user_attendance_yes, 'yes')
+            maybe_events = get_events_by_user_list(cur_friends, user_attendance_maybe, 'maybe')
+            no_events = get_events_by_user_list(cur_friends, user_attendance_no, 'no')
+
+            friends_events_yes_cache[cur_user] = yes_events
+            friends_events_maybe_cache[cur_user] = maybe_events
+            friends_events_no_cache[cur_user] = no_events
+
+        # similarity by users friends interested - yes
+        if len(yes_events) <= 0:
+            sim_friends_yes_cluster[k] = None
+        else:
+            events_centers = get_event_centroids(event_clusters, yes_events)
+            dist = np.sum(cdist(cur_cluster_center, events_centers))/events_centers.shape[0]
+            sim_friends_yes_cluster[k] = dist
+
+        # similarity by users friends interested - maybe
+        if len(maybe_events) <= 0:
+            sim_friends_maybe_cluster[k] = None
+        else:
+            events_centers = get_event_centroids(event_clusters, maybe_events)
+            dist = np.sum(cdist(cur_cluster_center, events_centers))/events_centers.shape[0]
+            sim_friends_maybe_cluster[k] = dist
+
+        # similarity by users friends interested - no
+        if len(no_events) <= 0:
+            sim_friends_no_cluster[k] = None
+        else:
+            events_centers = get_event_centroids(event_clusters, no_events)
+            dist = np.sum(cdist(cur_cluster_center, events_centers))/events_centers.shape[0]
+            sim_friends_no_cluster[k] = dist
+
+    train_data['sim_friends_yes_cluster'] = sim_friends_yes_cluster
+    train_data['sim_friends_maybe_cluster'] = sim_friends_maybe_cluster
+    train_data['sim_friends_no_cluster'] = sim_friends_no_cluster
+
+    return train_data
