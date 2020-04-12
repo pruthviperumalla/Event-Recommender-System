@@ -376,7 +376,7 @@ def get_attendance_intersection_count_list(row, event_attendees_df, event_list_c
 
 def get_sim_by_user_attendance(train_df, user_attendance_yes, user_attendance_maybe, event_attendees):
     
-    merged = pd.merge(train_data, user_attendance_yes, how = 'left', on = 'user', suffixes=('', '_yes'))
+    merged = pd.merge(train_df, user_attendance_yes, how = 'left', on = 'user', suffixes=('', '_yes'))
     merged = pd.merge(merged, user_attendance_maybe, how = 'left', on = 'user', suffixes=('', '_maybe'))
     
     merged['event_att_yes_sim'] = merged.apply (lambda row: get_attendance_intersection_count_list(row, event_attendees, 'yes_yes'), axis=1)
