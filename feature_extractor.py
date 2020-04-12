@@ -353,8 +353,14 @@ def get_attendance_intersection_score(event1, event2, event_attendees_df):
     if (len(selection1)==0 or len(selection2) == 0):
         return 0
     
-    users1 = selection1.iloc[0].yes.split()
-    users2 = selection2.iloc[0].yes.split()
+    users1_yes = selection1.iloc[0].yes
+    users2_yes = selection2.iloc[0].yes
+    
+    if(type(users1_yes) == float or type(users2_yes) == float):
+        return 0
+    
+    users1 = users1_yes.split()
+    users2 = users2_yes.split()
     
     users1 = [user.strip() for user in users1]
     users2 = [user.strip() for user in users2]
