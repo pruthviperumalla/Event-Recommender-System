@@ -29,6 +29,7 @@ In this phase, we perform feature engineering to identify and extract features t
 2.  \[location similarity between user and event \]
 
 3. \[time to event, apparently most important feature; \]
+As we were mentioning before, one major drawback with event based recommendations is the time sensitivity of it. A user can only attend an event that is scheduled after reasonable amount of time and he/she cannot do anything about the past events or events that are starting very soon. Intuitively, the time difference between when the event is scheduled to start and when the user first came to know about it (in our case, time at which the user saw a notification about the event) is represented in this feature.
 
 4. \[similarity between user and event based on attendance \]
 
