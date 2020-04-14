@@ -27,8 +27,6 @@ The data available on the Kaggle website had huge dataset available. However, th
 ![alt text](./results/wordBarPlot.png "Word Distribution")
 
 
-
-
 ## Approach
 
 Formalizing our problem as recommendation modeling and using techniques like collaborative filtering might not be a good idea for the following reasons. 
@@ -42,7 +40,7 @@ For the above reasons, we model this problem as a binary classification problem 
 <!--The approach is to first extract features related to user, features related to event and custom features that measure the similarity between user and event based on the attedance history available. Then, use these features to learn supervised model that predicts if a user is interested in an event given.  -->
 
 
-### Feature Extraction
+### 1. Feature Extraction
 
 In this phase, we perform feature engineering to identify and extract features that drive the prediction of user's interest in an event.  For a user and event pair, following are the features extracted. 
 1. \[ number/ratio of users attending, not attending, maybe attending and invited to the event \]
@@ -66,9 +64,23 @@ As we were mentioning before, one major drawback with event based recommendation
 
 10. Age of the user determined based on the provided date of birth.
 
-### Interest Prediction
+### 2. Interest Prediction
+In this phase, we used the above extracted features to learn a classifier that predicts if a user is interested in a given event. Below are the various supervised classification models we trained.
+- **Random Forest**
 
-### Generation of Recommendations
+- **K Nearest Neighbors**
+
+- **Logistic Regression**
+
+- **Neural Network**
+
+- **Support Vector Machine**
+
+- **Gaussian Naive Bayes**
+
+- **Ensemble Classifier**
+
+### 3. Generation of Recommendations
 To generate recommendations for a user, we consider every event from the given closed list and predict if user is interested in it. The list of events that the system classifies as interested are then recommended to the user.
 
 ##  Experiments & Results
