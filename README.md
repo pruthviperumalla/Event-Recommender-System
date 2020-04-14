@@ -1,3 +1,9 @@
+---
+layout: page
+title: Page With Contents
+toc: true
+toc_title: Custom Title
+---
 
 ## Problem Statement
 
