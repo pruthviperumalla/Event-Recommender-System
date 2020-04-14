@@ -73,9 +73,13 @@ To generate recommendations for a user, we consider every event from the given c
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
 | Gaussian Naive Bayes | 0.7204545454545455 | 0.2902155887230514 |
-| Random Forest |  | |
-| KNN | |  |
-| Logistic Regression |  |  |
+| Random Forest | 0.7746753246753246 | 0.5323383084577115 |
+| KNN | 0.7616883116883116 | 0.5085435313262815 |
+| SVM | 0.699025974025974 | 0.699025974025974 |
+| Neural Net | 0.7327922077922078 | 0.4452296819787986 |
+| Logistic Regression | 0.7334415584415584 | 0.17395182872435327 |
+| El | 0.7772727272727272 | 0.5445304937076476 |
+| Ensemble Learning | 0.775974025974026 | 0.5396902226524685 |
 
 - metric disucssion
 - baseline models
