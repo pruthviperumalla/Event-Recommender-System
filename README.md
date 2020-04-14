@@ -63,7 +63,8 @@ As we were mentioning before, one major drawback with event based recommendation
 ### Interest Prediction
 
 ### Generation of Recommendations
-  
+To generate recommendations for a user, we consider every event from the given closed list and predict if user is interested in it. The list of events that the system classifies as interested are then recommended to the user.
+
 ##  Experiments & Results
 
 - list all models (should we put a table for all models showing fbeta score and accuracy)
