@@ -1,6 +1,3 @@
-# Event Recommendation Engine
-
-
 ## Problem Statement
 
 - pbm statement, motivation, input, output
