@@ -1,11 +1,3 @@
----
-layout: page
-title: Event Recommender System
-subtitle: Predicting a user interest in an event
-toc: true
-toc_title: Contents
-show_sidebar: false
----
 
 ## Problem Statement
 
