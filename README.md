@@ -74,9 +74,15 @@ accuracy
 f0.5
 0.2902155887230514
 
-| Model | #Accuracy  | #Fbeta Score  |
+| Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
 | Gaussian Naive Bayes | 0.7204545454545455 | 0.2902155887230514 |
+| :---:   | :-: | :-: |
+| Random Forest |  | |
+| :---:   | :-: | :-: |
+| KNN | |  |
+| :---:   | :-: | :-: |
+| Logistic Regression |  |  |
 
 - metric disucssion
 - baseline models
