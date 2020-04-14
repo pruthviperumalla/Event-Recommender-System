@@ -5,6 +5,8 @@ Recommender System is one of the growing demands in the current situation where 
 ## Objective
 These recommendations can be extended to books, movies, organised profitable events (like conferences or music festivals) or non-profitable events (such as run for charity or fund raising activities). Recommending these events to the user based on their past experiences and preferences is one of the basic motivations to develop an event recommendation system. This recommendation takes into account varied amounts of information about the users and the events. Information related to the user includes age, gender etc. For events, the information includes the description, type, past attendees, location of the event etc. Apart from this, the system needs some information which relates users to events, like distance between the location user and event, or information if any user’s friends are visiting/organising the event. 	
 
+This project tries to predict whether the user would be interested in the given events (with details about type, location) based on the previous events attended by the users and their friends. 
+
 
 ## Data
 
