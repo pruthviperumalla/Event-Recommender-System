@@ -1,39 +1,47 @@
-## Welcome to GitHub Pages
+# Event Recommendation Engine
 
-You can use the [editor on GitHub](https://github.com/ramyasree9/Event-Recommender-System/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Problem Statement
 
-### Markdown
+- pbm statement, motivation, input, output
+- what people have done? references
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+## Data
 
-# Header 1
-Data... 
-## Header 2
-### Header 3
+- explain given data, visualize
 
-- Bulleted
-- Bulleted - ML Project
-- List
+## Approach
 
-1. Numbered
-2. List
+Formalizing our problem as recommendation modelling and using techniques like collaborative filtering might not be a good idea for the following reasons. 
+- For user/event based collaborative filtering model to be useful, there must be considerable overlapping of transactions between events and users which is not true in our case. The transactions data provided is too sparse for collaborating filtering to make useful recommendations. 
+- Also, there are users and events that don't have an entry in the training data. 
+- Another reason is that recommendations by collaborative filtering are generally generated from the open list of all events whereas the challenge requires us to generate recommendations for a user from the provided closed list of events.
+- Several features of events and users are provided which can be used to extract custom features.
 
-**Bold** and _Italic_ and `Code` text
+For the above reasons, we model this problem as a binary classification problem in which given a pair of user and event, we classify whether the user is interested in attending the event. The recommendation engine can be divided into following phases of feature extraction, interest prediction and generation of recommendations. 
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+<!--The approach is to first extract features related to user, features related to event and custom features that measure the similarity between user and event based on the attedance history available. Then, use these features to learn supervised model that predicts if a user is interested in an event given.  -->
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ramyasree9/Event-Recommender-System/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Feature Extraction
+- explain custom features, visualizations
+  
+### Interest Prediction
 
-### Support or Contact
+### Generation of Recommendations
+  
+##  Experiments & Results
+    
+- list all models
+- metric disucssion
+- baseline models
+- results plots
+- analysis
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Conclusion
+- major achievement?
+- future work - recommend events
+
+
