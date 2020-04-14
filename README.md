@@ -15,12 +15,12 @@ We have used the dataset available on the Kaggle website [1:https://www.kaggle.c
 The data available on the Kaggle website had huge dataset available. However, the data was not perfect that is it had mising values for several fields. Image below shows the missing values in the location field for users.csv available.
 
 
-![alt text](./usersMissingNo.png "Missing values in users data")
+![alt text](./results/GreenUserMSNO.png "Missing values in users data")
 
  Similarly, the dataset available for events had missing values for various fields as shown in the below image. 
  
  
-![alt text](./events_missingData.png "Missing values in events data")
+![alt text](./results/GreenEventMSNO.png "Missing values in events data")
 
 - explain given data, visualize
 ![alt text](./results/wordcloud.png "Word Cloud")
