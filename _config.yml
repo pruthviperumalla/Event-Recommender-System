@@ -1,8 +1,8 @@
 # remote_theme: chrisrhymes/bulma-clean-theme
 
 theme: jekyll-theme-cayman
-title: Ramya Sree Boppana, Yuzi Hu, Vidhi Jindal, Pruthvi Perumalla
-description: A short description of your site's purpose
+title: Event Recommendation Engine
+description: Ramya Sree Boppana, Yuzi Hu, Vidhi Jindal, Pruthvi Perumalla
 show_downloads: false
 github:
   is_project_page: false
