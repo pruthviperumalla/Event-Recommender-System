@@ -73,6 +73,10 @@ accuracy
 f0.5
 0.2902155887230514
 
+| Model | #Accuracy  | #Fbeta Score  |
+| :---:   | :-: | :-: |
+| Gaussian Naive Bayes | 0.7204545454545455 | 0.2902155887230514 |
+
 - metric disucssion
 - baseline models
 - results plots
