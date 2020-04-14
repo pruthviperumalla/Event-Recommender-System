@@ -16,15 +16,29 @@ Formalizing our problem as recommendation modelling and using techniques like co
 - Another reason is that recommendations by collaborative filtering are generally generated from the open list of all events whereas the challenge requires us to generate recommendations for a user from the provided closed list of events.
 - Several features of events and users are provided which can be used to extract custom features.
 
-For the above reasons, we model this problem as a binary classification problem in which given a pair of user and event, we classify whether the user is interested in attending the event. The recommendation engine can be divided into following phases of feature extraction, interest prediction and generation of recommendations. 
-
+For the above reasons, we model this problem as a binary classification problem in which given a pair of user and event, we classify whether the user is interested in attending the event. Therefore, the recommendation system can be divided into three phases- feature extraction, interest prediction and generation of recommendations. 
 
 <!--The approach is to first extract features related to user, features related to event and custom features that measure the similarity between user and event based on the attedance history available. Then, use these features to learn supervised model that predicts if a user is interested in an event given.  -->
 
 
 ### Feature Extraction
-- explain custom features, visualizations
+
+In this phase, we perform feature engineering to identify and extract features that drive the prediction of user's interest in an event.  For a user and event pair, following are the features extracted. 
+1. \[ number/ratio of users attending, not attending, maybe attending and invited to the event \]
   
+2.  \[location similarity between user and event \]
+
+3. \[time to event, apparently most important feature; \]
+
+4. \[similarity between user and event based on attendance \]
+
+5. \[similarity between the user and event based on cluster of words \]
+
+6. Boolean indicating whether the user was invited to the event.
+7. Boolean indicating whether the event was created by the user's friend. 
+8. Gender of the user.
+9. Age of the user determined based on the provided date of birth.
+
 ### Interest Prediction
 
 ### Generation of Recommendations
