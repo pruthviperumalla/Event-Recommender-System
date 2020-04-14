@@ -65,8 +65,14 @@ As we were mentioning before, one major drawback with event based recommendation
 ### Generation of Recommendations
   
 ##  Experiments & Results
-    
-- list all models
+
+- list all models (should we put a table for all models showing fbeta score and accuracy)
+(Putting values for the time being)Classification: Gaussian Naive Bayes Model: 
+accuracy
+0.7204545454545455
+f0.5
+0.2902155887230514
+
 - metric disucssion
 - baseline models
 - results plots
