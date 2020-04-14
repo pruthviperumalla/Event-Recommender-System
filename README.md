@@ -3,9 +3,10 @@ layout: page
 title: Event Recommender System
 subtitle: Predicting a user's interest in an event
 toc: true
-#toc_title: Custom Title
+toc_title: Contents
 menubar: example_menu
 show_sidebar: false
+
 ---
 
 ## Problem Statement
