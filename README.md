@@ -7,8 +7,8 @@
 ## Data
 
 - explain given data, visualize
-[alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordcloud.png "Word Cloud")
-[alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordBarPlot.png "Word Distribution")
+![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordcloud.png "Word Cloud")
+![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordBarPlot.png "Word Distribution")
 
 
 
