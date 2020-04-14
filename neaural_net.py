@@ -19,7 +19,7 @@ def fit(X_train, y_train):
     metric = make_scorer(fbeta_score, beta=0.5)
     
     pipe = make_pipeline( StandardScaler(),
-                     MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(10, 5), random_state=1, max_iter = 10000)
+                     MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(25), random_state=1, max_iter = 10000)
                      )
     scores = cross_val_score(pipe, X_train, y_train, cv=5, scoring = metric)
     print("F0.5 Cross Validation Scores: ", scores)
