@@ -20,6 +20,9 @@ We have used the dataset available on the Kaggle website [1:https://www.kaggle.c
 ![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordcloud.png "Word Cloud")
 ![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordBarPlot.png "Word Distribution")
 
+![Word Cloud]
+(https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordcloud.png)
+
 
 
 
