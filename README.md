@@ -15,18 +15,16 @@ We have used the dataset available on the Kaggle website [1:https://www.kaggle.c
 The data available on the Kaggle website had huge dataset available. However, the data was not perfect that is it had mising values for several fields. Image below shows the missing values in the location field for users.csv available.
 
 
-![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/usersMissingNo.png "Missing values in users data")
+![alt text](./usersMissingNo.png "Missing values in users data")
 
  Similarly, the dataset available for events had missing values for various fields as shown in the below image. 
  
  
-![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/events_missingData.png "Missing values in events data")
+![alt text](./events_missingData.png "Missing values in events data")
 
 - explain given data, visualize
-![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordcloud.png "Word Cloud")
-![alt text](https://github.com/pruthviperumalla/Event-Recommender-System/blob/master/results/wordBarPlot.png "Word Distribution")
-
-![Word Cloud](./results/wordcloud.png)
+![alt text](./results/wordcloud.png "Word Cloud")
+![alt text](./results/wordBarPlot.png "Word Distribution")
 
 
 
