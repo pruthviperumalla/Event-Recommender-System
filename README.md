@@ -12,7 +12,7 @@ We have used the dataset available on the Kaggle website [1:https://www.kaggle.c
 
 ## Data
 
-The data available on the Kaggle website had huge dataset available. However, the data was not perfect that is it had mising values for several fields. Image below shows the missing values in the location field for users.csv available.
+The data available on the Kaggle website had huge dataset available. However, the data was not perfect that is it had missing values for several fields. Image below shows the missing values in the location field for users.csv available.
 
 
 ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
@@ -31,7 +31,7 @@ The data available on the Kaggle website had huge dataset available. However, th
 
 ## Approach
 
-Formalizing our problem as recommendation modelling and using techniques like collaborative filtering might not be a good idea for the following reasons. 
+Formalizing our problem as recommendation modeling and using techniques like collaborative filtering might not be a good idea for the following reasons. 
 - For user/event based collaborative filtering model to be useful, there must be considerable overlapping of transactions between events and users which is not true in our case. The transactions data provided is too sparse for collaborating filtering to make useful recommendations. 
 - Also, there are users and events that don't have an entry in the training data. 
 - Another reason is that recommendations by collaborative filtering are generally generated from the open list of all events whereas the challenge requires us to generate recommendations for a user from the provided closed list of events.
@@ -92,7 +92,11 @@ To generate recommendations for a user, we consider every event from the given c
 - analysis
 
 ## Conclusion and Future Work
-- major achievement?
-- future work - recommend events
+
+We took the approach of experimenting and comparing a few supervised models to determine which technique works best to predict what events users will be interested in based on events they've responded to in the past, user demographic information, and what events they've interacted with in the app. Our current results show above baseline performance (F0.5 score) for Random Forest, KNN, Neural Network and SVM with Random Forest performing the best out of all. Experiments also show that an ensemble model of Random Forest and KNN further improves the F0.5 score by 2%. We conclude that the hand-crafted custom features to measure similarity between user and event perform reasonably well on the task of user interest prediction even though the transactions between users and events are sparse.
+
+As an extension to the project, we would like to rank the generated event recommendations based on the probability of user interest predicted by the models. Another extension would be to employ a new feature of user clustering by modeling friendships between users as a graph and detecting communities.
+
+## References
 
 
