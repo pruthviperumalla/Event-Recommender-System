@@ -3,4 +3,4 @@
 theme: jekyll-theme-cayman
 title: Event Recommendation Engine
 description: A short description of your site's purpose
-show_downloads: "false"
+show_downloads: ["false"]
