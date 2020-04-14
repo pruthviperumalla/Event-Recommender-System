@@ -19,7 +19,7 @@
 - results plots
 - analysis
 
-## conclusion
+## Conclusion
 - major achievement?
 - future work - recommend events
 
