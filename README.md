@@ -1,39 +1,26 @@
-## Welcome to GitHub Pages
+## Problem Statement
 
-You can use the [editor on GitHub](https://github.com/ramyasree9/Event-Recommender-System/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+- pbm statement, motivation, input, output
+- what people have done? references
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## Data
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- explain given data, visualize
+- feature engineering
+    - custom features - detailed explaination
+    - plots
+  
+##  Models & Results
+    
+- list all models
+- metric disucssion
+- baseline models
+- results plots
+- analysis
 
-```markdown
-Syntax highlighted code block
+## conclusion
+- major achievement?
+- future work - recommend events
 
-# Header 1
-Data... 
-## Header 2
-### Header 3
 
-- Bulleted
-- Bulleted - ML Project
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ramyasree9/Event-Recommender-System/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
