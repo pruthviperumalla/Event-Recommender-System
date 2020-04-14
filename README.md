@@ -46,20 +46,25 @@ For the above reasons, we model this problem as a binary classification problem 
 
 In this phase, we perform feature engineering to identify and extract features that drive the prediction of user's interest in an event.  For a user and event pair, following are the features extracted. 
 1. \[ number/ratio of users attending, not attending, maybe attending and invited to the event \]
-  
-2.  \[location similarity between user and event \]
 
-3. \[time to event, apparently most important feature; \]
+2. \[ number/ratio of users' friends attending, not attending, maybe attending and invited to the event \]
+
+3.  \[location similarity between user and event \]
+
+4. \[time to event, apparently most important feature; \]
 As we were mentioning before, one major drawback with event based recommendations is the time sensitivity of it. A user can only attend an event that is scheduled after reasonable amount of time and he/she cannot do anything about the past events or events that are starting very soon. Intuitively, the time difference between when the event is scheduled to start and when the user first came to know about it (in our case, time at which the user saw a notification about the event) is represented in this feature.
 
-4. \[similarity between user and event based on attendance \]
+5. \[similarity between user and event based on attendance \]
 
-5. Similarity between the user and the event based on cluster of words
+6. Similarity between the user and the event based on cluster of words
 
-6. Boolean indicating whether the user was invited to the event.
-7. Boolean indicating whether the event was created by the user's friend. 
-8. Gender of the user.
-9. Age of the user determined based on the provided date of birth.
+7. Boolean indicating whether the user was invited to the event.
+
+8. Boolean indicating whether the event was created by the user's friend. 
+
+9. Gender of the user.
+
+10. Age of the user determined based on the provided date of birth.
 
 ### Interest Prediction
 
