@@ -56,7 +56,7 @@ As we were mentioning before, one major drawback with event based recommendation
 
 6. Similarity between the user and the event based on cluster of words
 
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://pruthviperumalla.github.io/Event-Recommender-System/cluster.html" height="525" width="100%"></iframe>
+   <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://pruthviperumalla.github.io/Event-Recommender-System/cluster.html" height="525" width="100%"></iframe>
 
 
 7. Boolean indicating whether the user was invited to the event.
