@@ -67,6 +67,8 @@ As we were mentioning before, one major drawback with event based recommendation
 ### 2. Interest Prediction
 In this phase, we used the above extracted features to learn a classifier that predicts if a user is interested in a given event. Below are the various supervised classification models we trained.
 - **Random Forest**
+The relative feature importances determined by the random forest model are shown in the figure <#>.
+![alt text](./results/rf_feat_imp.png "Feature Importances")
 
 - **K Nearest Neighbors**
 
@@ -87,6 +89,7 @@ To generate recommendations for a user, we consider every event from the given c
 
 - list all models 
 
+- VALUES NEED TO BE UPDATED!
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
 | Gaussian Naive Bayes | 0.7204545454545455 | 0.2902155887230514 |
