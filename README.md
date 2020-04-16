@@ -82,6 +82,7 @@ The relative feature importances determined by the random forest model are shown
 - **Support Vector Machine**
 
 - **Gaussian Naive Bayes**
+Gaussian Naive Bayes model gave the following result. We could not tune the parameters as there were no hyperparameters present. This was one of the reasons which undermined to use this method for classification. Naive Bayes gives equal importance to all the fields and does not discrimate betweeen the features. 
 
 - **Ensemble Classifier**
 
