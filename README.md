@@ -67,11 +67,6 @@ As we were mentioning before, one major drawback with event based recommendation
    <img  src="./results/elbow.png"> </div>
    <div align = "center"><i>Figure 2: K Means Elbow Plot </i> </div>
 
-   <!-- <div align="center">
-   <img width="300" height="200" src="./results/elbow.png">
-   <i>Figure 2: K Means Elbow Plot </i>
-   </div> -->
-
    To visualize the clusters, we reduced the dimensions from 100 to 3 using PCA. Below is an interactive visualization of the first three principal components of events and their clusters.  
 
    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://pruthviperumalla.github.io/Event-Recommender-System/cluster.html" height="525" width="100%"></iframe>
@@ -112,10 +107,19 @@ To generate recommendations for a user, we consider every event from the given c
 Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
 
 - **Random Forest**
-The relative feature importances determined by the random forest model are shown in the figure <#>.
-![alt text](./results/rf_feat_imp.png "Feature Importances")
+
+   After tuning hyper parameters using k folds cross validation, we got the best results for an ensemble of 100 trees with depth limited to 15, gini impurity as the criterion to split, and with bootstrapping of the total number of data points drawn as samples and square root of the total number of features considered for the construction of a tree. The relative feature importances determined by the Random Forest model are shown in the figure <#>.
+
+   <div align="center">
+   <img  src="./results/rf_feat_imp.png"> </div>
+
+   <div align = "center"> <i> Figure 3: Relative Feature Importances </i> </div>
+
+   As seen from the figure above, time to event is the most important feature that determines whether a user will be interested in attending an event or not. The peformance of the Random Forest is the best out of all supervised classifiers we tried. 
 
 - **K Nearest Neighbors**
+
+   In this model, we used 20 nearest neighbors for classification where each point is weighted by the inverse of their distance. KNN also produced above baseline results.
 
 - **Logistic Regression**
 
@@ -127,9 +131,11 @@ The relative feature importances determined by the random forest model are shown
 
 - **Gaussian Naive Bayes**
 
-   Gaussian Naive Bayes model below the baseline result in terms of F0.5 score. The naive assumption that the every pair of features is conditionally independent may not hold in our case. Also, Naive Bayes gives equal importance to all the fields and does not discrimate betweeen the features. These may be reasons for its low performance.
+   Peformance of Gaussian Naive Bayes model is below the baseline model in terms of F0.5 score. The naive assumption that the every pair of features is conditionally independent may not hold in our case. Also, Naive Bayes gives equal importance to all the fields and does not discrimate betweeen the features. These may be reasons for its low performance.
 
 - **Ensemble Classifier**
+
+   To further improve the performance, we experimented with an ensemble of several of the above models we implemented. We obtained the best validation as well as the test results with an ensemble of Random Forest classifier and KNN classifer. These two classifiers are ensembled by the hard(majority) voting mechanism with 0.9 weight for Random Forest and 0.1 weight for KNN. In terms of F0.5 score, the ensemble model shows 2.6% improvement over the Random Forest classifier and 4.8% improvement over the KNN classifier.
 
 - VALUES NEED TO BE UPDATED!
 
