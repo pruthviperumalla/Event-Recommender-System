@@ -61,12 +61,13 @@ As we were mentioning before, one major drawback with event based recommendation
    
    If a user is interested in events related to a topic, they may also attend future events related to this topic. We can capture this feature by measuring the similarity between the event in question to the events user attended in the past. For every event, we are also provided a bag of top 100 frequent words constructed from its name and description. We use this bag of words features to cluster together the events. To perform the unsupervised clustering, we use K-Means algorithm. Figure <> shows the elbow curve that is used to determine the optimal number of clusters. However, the elbow is not obvious from the plot. As the total number of events is exteremely high (3 million), we chose 200 clusters which is a trade-off between computation time and loss (sum of squared distances).
 
-   <!-- ![alt text](./results/elbow.png "Word Distribution") -->
+   ![alt text](./results/elbow.png "Word Distribution")
+<i>Figure 2: K Means Elbow Plot </i>
 
-<div align="center">
-  <img src="./results/elbow.png">
+<!-- <div align="center">
+  <img width="300" height="200" src="./results/elbow.png">
   <i>Figure 2: K Means Elbow Plot </i>
-</div>
+</div> -->
 
   <!-- <div align="center"> <i>Figure 2: K Means Elbow Plot </i></div> -->
 
