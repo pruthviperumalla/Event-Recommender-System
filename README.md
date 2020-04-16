@@ -25,7 +25,9 @@ The data available on the Kaggle website had huge dataset available. However, th
 - explain given data, visualize
 ![alt text](./results/wordcloud.png "Word Cloud")
 ![alt text](./results/wordBarPlot.png "Word Distribution")
+*Fig. 2: Title*
 
+- how missing values are handled
 
 ## Approach
 
@@ -43,6 +45,7 @@ For the above reasons, we model this problem as a binary classification problem 
 ### 1. Feature Extraction
 
 In this phase, we perform feature engineering to identify and extract features that drive the prediction of user's interest in an event.  For a user and event pair, following are the features extracted. 
+
 1. \[ number/ratio of users attending, not attending, maybe attending and invited to the event \]
 
 2. \[ number/ratio of users' friends attending, not attending, maybe attending and invited to the event \]
@@ -54,21 +57,44 @@ As we were mentioning before, one major drawback with event based recommendation
 
 5. \[similarity between user and event based on attendance \]
 
-6. Similarity between the user and the event based on cluster of words
+6. *Sometimes, people just prefer the familiar*
+   
+   If a user is interested in events related to a topic, they may also attend future events related to this topic. We can capture this feature by measuring the similarity between the event in question to the events user attended in the past. For every event, we are also provided a bag of top 100 frequent words constructed from its name and description. We use this bag of words features to cluster together the events. To perform the unsupervised clustering, we use K-Means algorithm. Figure <> shows the elbow curve that is used to determine the optimal number of clusters. However, the elbow is not obvious from the plot. As the total number of events is exteremely high (3 million), we chose 200 clusters which is a trade-off between computation time and loss (sum of squared distances).
+
+   ![alt text](./results/elbow.png "Word Distribution")
+   <div align="center"> <i>Figure 2: K Means Elbow Plot </i></div>
+
+   To visualize the clusters, we reduced the dimensions from 100 to 3 using PCA. Below is an interactive visualization of the first three principal components of events and their clusters.  
 
    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://pruthviperumalla.github.io/Event-Recommender-System/cluster.html" height="525" width="100%"></iframe>
 
+   Using these clusters, we extract four similarity features one for each of the different interactions user had with the past events. i.e. For the first feature, we measure the similarity between the current event and the events for which user indicated that they were going. Second feature captures the similarity between the event in question to the events which user indicated that they maybe going. Third, similarity is measured between current event and the events for which user indicated that they were not going. Fourth feature captures the similarity between the current event and the events to user was invited. To measure the similarity between an event *e* and a list of events, we take the average of the euclidean distance  between the centroid of the cluster *e* belongs to and the centroids of the clusters of events from the list. 
 
-7. Boolean indicating whether the user was invited to the event.
+7. *Sometimes, people just like what their friends like*
 
-8. Boolean indicating whether the event was created by the user's friend. 
+   Users may also attend events whose topics are similar to those that their friends attended. We capture three more features similar to the above features. Specifically, we extract similarity between the current event and the events that user's friends indicated that they were going, maybe going and not going as three different features. 
 
-9. Gender of the user.
+8. Boolean indicating whether the user was invited to the event.
 
-10. Age of the user determined based on the provided date of birth.
+9. Boolean indicating whether the event was created by the user's friend. 
+
+10. Gender of the user.
+
+11. Age of the user determined based on the provided year of birth.
 
 ### 2. Interest Prediction
-In this phase, we used the above extracted features to learn a classifier that predicts if a user is interested in a given event. Below are the various supervised classification models we trained.
+In this phase, we use the above extracted features to learn a classifier that predicts if a user is interested in a given event. We experimented with several supervised binary classification models with interested and not interested as the classes. Experiments performed with each of these models and results obtained are discussed in detail in the next section.
+
+### 3. Generation of Recommendations
+To generate recommendations for a user, we consider every event from the given closed list and predict if user is interested in it. The list of events that the system classifies as interested are then recommended to the user.
+
+##  Experiments & Results
+
+- metric definiton, why 
+- baseline models, why
+
+Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
+
 - **Random Forest**
 The relative feature importances determined by the random forest model are shown in the figure <#>.
 ![alt text](./results/rf_feat_imp.png "Feature Importances")
@@ -81,21 +107,16 @@ The relative feature importances determined by the random forest model are shown
 
 - **Support Vector Machine**
 
-For Support Vector Machine, we tuned the hyperparameter C which controls the regularization strength of the model. We found out the SVM gives the best performance when the regularization is set to around 2000. We also tried different kernels such as "Radial Basis Kernel", "Linear Kernel" and "Polynomial Kernel" and the model has the highest test accuracy when using "Radial Basis Kernel".
+   For Support Vector Machine, we tuned the hyperparameter C which controls the regularization strength of the model. We found out the SVM gives the best performance when the regularization is set to around 2000. We also tried different kernels such as "Radial Basis Kernel", "Linear Kernel" and "Polynomial Kernel" and the model has the highest test accuracy when using "Radial Basis Kernel".
 
 - **Gaussian Naive Bayes**
-Gaussian Naive Bayes model gave the following result. We could not tune the parameters as there were no hyperparameters present. This was one of the reasons which discouraged us to use this method for classification. Naive Bayes gives equal importance to all the fields and does not discrimate betweeen the features. 
+
+   Gaussian Naive Bayes model gave the following result. We could not tune the parameters as there were no hyperparameters present. This was one of the reasons which discouraged us to use this method for classification. Naive Bayes gives equal importance to all the fields and does not discrimate betweeen the features. 
 
 - **Ensemble Classifier**
 
-### 3. Generation of Recommendations
-To generate recommendations for a user, we consider every event from the given closed list and predict if user is interested in it. The list of events that the system classifies as interested are then recommended to the user.
-
-##  Experiments & Results
-
-- list all models 
-
 - VALUES NEED TO BE UPDATED!
+
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
 | Gaussian Naive Bayes | 0.7204545454545455 | 0.2902155887230514 |
@@ -107,8 +128,7 @@ To generate recommendations for a user, we consider every event from the given c
 | El | 0.7772727272727272 | 0.5445304937076476 |
 | Ensemble Learning | 0.775974025974026 | 0.5396902226524685 |
 
-- metric disucssion
-- baseline models
+
 - results plots
 - analysis
 
