@@ -57,11 +57,14 @@ As we were mentioning before, one major drawback with event based recommendation
 
 5. \[similarity between user and event based on attendance \]
 
-6. *Sometimes, people just prefer the familiar*
+6. ***Sometimes, people just prefer the familiar***
    
    If a user is interested in events related to a topic, they may also attend future events related to this topic. We can capture this feature by measuring the similarity between the event in question to the events user attended in the past. For every event, we are also provided a bag of top 100 frequent words constructed from its name and description. We use this bag of words features to cluster together the events. To perform the unsupervised clustering, we use K-Means algorithm. Figure <> shows the elbow curve that is used to determine the optimal number of clusters. However, the elbow is not obvious from the plot. As the total number of events is exteremely high (3 million), we chose 200 clusters which is a trade-off between computation time and loss (sum of squared distances).
 
-   ![alt text](./results/elbow.png "Word Distribution")
+   <!-- ![alt text](./results/elbow.png "Word Distribution") -->
+
+   <div align="center">
+   <img  src="./results/elbow.png"> </div>
    <div align = "center"><i>Figure 2: K Means Elbow Plot </i> </div>
 
    <!-- <div align="center">
@@ -75,17 +78,25 @@ As we were mentioning before, one major drawback with event based recommendation
    
    Using these clusters, we extract four similarity features one for each of the different interactions user had with the past events. i.e. For the first feature, we measure the similarity between the current event and the events for which user indicated that they were going. Second feature captures the similarity between the event in question to the events which user indicated that they maybe going. Third, similarity is measured between current event and the events for which user indicated that they were not going. Fourth feature captures the similarity between the current event and the events to user was invited. To measure the similarity between an event *e* and a list of events, we take the average of the euclidean distance  between the centroid of the cluster *e* belongs to and the centroids of the clusters of events from the list. 
 
-7. *Sometimes, people just like what their friends like*
+7. ***Sometimes, people just like what their friends like***
 
    Users may also attend events whose topics are similar to those that their friends attended. We capture three more features similar to the above features. Specifically, we extract similarity between the current event and the events that user's friends indicated that they were going, maybe going and not going as three different features. 
 
-8. Boolean indicating whether the user was invited to the event.
+8. ***Sometimes, people just prefer the events they were invited to*** 
 
-9. Boolean indicating whether the event was created by the user's friend. 
+   This is a boolean feature indicating whether the user was invited to the event.
 
-10. Gender of the user.
+9. ***Sometimes, people just prefer the events created by their friends***
+   
+   This is a boolean feature indicating whether the event was created by the user's friend. 
 
-11. Age of the user determined based on the provided year of birth.
+10. ***Some events may be gender specific***
+   
+      We capture the gender of the user that may be a determining factor for events that are either gender-specific or gender-related.
+
+11. ***Age influences social goals*** 
+      
+      Age may be an important feature considering that the social goals of humans vary with age. We extract this feature from the year of birth provided for a user.
 
 ### 2. Interest Prediction
 In this phase, we use the above extracted features to learn a classifier that predicts if a user is interested in a given event. We experimented with several supervised binary classification models with interested and not interested as the classes. Experiments performed with each of these models and results obtained are discussed in detail in the next section.
