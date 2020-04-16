@@ -31,7 +31,6 @@ import numpy as np
 # print("F1: ", f1_score(y_test, y_pred))
 
 # print("F0.5: ", fbeta_score(y_test, y_pred, beta = 0.5))
-
 def fit(X_train, y_train):
     model = make_pipeline(StandardScaler(),
                           SVC(C=2000, kernel='rbf')
