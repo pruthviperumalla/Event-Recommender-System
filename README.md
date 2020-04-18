@@ -94,6 +94,14 @@ For the above reasons, we model this problem as a binary classification problem 
 11. ***Age influences social goals*** 
       
       Age may be an important feature considering that the social goals of humans vary with age. We extract this feature from the year of birth provided for a user.
+      
+      Below is the heatmap for the correlation between the features. 
+      
+   <div align="center">
+   <img  src="./results/heatmap.png"> </div>
+   <div align = "center"><i>Figure 3: Correlation Matrix</i> </div>
+      
+      
 
 ### 2. Interest Prediction
 In this phase, we use the above extracted features to learn a classifier that predicts if a user is interested in a given event. We experimented with several supervised binary classification models with interested and not interested as the classes. Experiments performed with each of these models and results obtained are discussed in detail in the next section.
