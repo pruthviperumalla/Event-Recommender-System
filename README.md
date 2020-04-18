@@ -46,11 +46,32 @@ For the above reasons, we model this problem as a binary classification problem 
 
   In this phase, we perform feature engineering to identify and extract features that drive the prediction of user's interest in an event.  For a user and event pair, following are the features extracted. 
 
-1. \[ number/ratio of users attending, not attending, maybe attending and invited to the event \]
+1. ***Event attendance based metrics***
 
-2. \[ number/ratio of users' friends attending, not attending, maybe attending and invited to the event \]
+   There is a higher chance of our target user attending an event that is already popular. To measure the popularity of an event, we extract the following metrics based on user attendance and set up various features using these. 
+   
+      - Number of users who marked "attending" for our event
+      - Number of users who marked "no attending" for our event
+      - Number of users who marked "may be" for our event
+      - Number of users who are invited to the event
+      - Ratio of number of users not attending with number of users attending
+      - Ratio of number of users who might be attending with number of users attending
+      - Ratio of number of users invited with number of users attending
 
-3.  ***Local convenience***
+2. ***Friend's attendance based metrics***
+
+   Building on top of the first feature, looking at only the attendance of current user's friends might give us a stronger measure of current user's interests with that of the event. Hence, we extracted a similar set of features resitrcting ourselves to only look at the friends of current user instead of everyone. The following features are extracted in this way. 
+   
+      - Number of friends who marked "attending" for our event
+      - Number of friends who marked "no attending" for our event
+      - Number of friends who marked "may be" for our event
+      - Number of friends who are invited to the event
+      - Ratio of number of friends not attending with number of friends attending
+      - Ratio of number of friends who might be attending with number of friends attending
+      - Ratio of number of friends invited with number of friends attending
+
+3. ***Local convenience***
+
    Users are more likely to attend an event that is happening nearby and one that is preferably in the same city. From the user and event details, we extract two boolean features. The first one checks if the user and event are in the same city and the second one checks if they are in the same country. For a better understanding we plotted the all the city locations where events are happening and where the user are located in a world map. 
    
    <div align="center" style="align-items: center;justify-content: center;">
