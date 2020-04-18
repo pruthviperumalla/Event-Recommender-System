@@ -62,7 +62,6 @@ For the above reasons, we model this problem as a binary classification problem 
    
    <div align="center" style="align-items: center;justify-content: center;">
     <img  src="./results/location_users.png" width="650">
-    <i>User city locations scaled by number of users in a city</i>
    </div>
    <div align="center">
     <i>User city locations scaled by number of users in a city</i>
