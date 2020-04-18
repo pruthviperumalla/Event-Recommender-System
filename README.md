@@ -93,7 +93,7 @@ For the above reasons, we model this problem as a binary classification problem 
    As we were mentioning before, one major drawback with event based recommendations is the time sensitivity of it. A user can only attend an event that is scheduled after reasonable amount of time and he/she cannot do anything about the past events or events that are starting very soon. Intuitively, the time difference between when the event is scheduled to start and when the user first came to know about it (in our case, time at which the user saw a notification about the event) is represented in this feature.
 
    <div align="center" style="align-items: center;justify-content: center;">
-    <img  src="./results/time_diff.png" width="650">
+    <img  src="./results/time_diff.png">
    </div>
    <div align="center">
     <i>Time difference between event start time and user notification time</i>
