@@ -99,7 +99,9 @@ For the above reasons, we model this problem as a binary classification problem 
     <i>Time difference between event start time and user notification time</i>
    </div>
 
-5. \[similarity between user and event based on attendance \]
+5. ***Event similarity based on previously attended events***
+
+   Analysing the common attenders between two events might give us hints on how likely a user will attend the second event given that he has attended the first event. Higher number of common attenders would indicate higher similarity between the events and higher likeliness to attend to both the events. In this feature we try to model this event similarity by looking at the common attenders between our current target event and the events our current user has previously attended. For each such pair, we normalize the number of intersecting users by dividing them with the number of attendees from the lower attended event. The average of all such pairs is taken as our similarity score.
 
 6. ***Sometimes, people just prefer the familiar***
    
