@@ -177,8 +177,18 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 
 - **Logistic Regression**
 
+   In logistic regression, we first used a standard scaler to normalize all the features to remove the dominance of higher magnitude features such as "Schedule convenience". In the actual model, we used a l2 regularizer with a regularization strength of 1.0 to train. We also tried tuning the regularization strength hyperparameter but it was not effecting the validation accuracy significantly.
+
 - **Neural Network**
 
+   We used a simple fully connected multi layer perceptron to train our network. To decide on the number of hidden layers and number of nodes in each layer, we experimented with various values and started with the intuitive rule that the number of nodes in a hidden layer should be between the number of input nodes (31, in our case) and the number of output nodes(2, in our case).
+   
+   | No. of nodes in each hidden layer | Accuracy  | Fbeta Score  |
+   | 15 | 0.736038961038961  | 0.41358293426208087  |
+   | 20, 10 | 0.7126623376623377  | 0.396498455200824  |
+   | 25 | 0.7337662337662337  | 0.4446038006453926  |
+   | 30 | 0.7243506493506493  | 0.4235211760588029  |
+   
 - **Support Vector Machine**
 
    For Support Vector Machine, we tuned the hyperparameter C which controls the regularization strength of the model. We found out the SVM gives the best performance when the regularization is set to around 2000. We also tried different kernels such as "Radial Basis Kernel", "Linear Kernel" and "Polynomial Kernel" and the model has the highest test accuracy when using "Radial Basis Kernel".
