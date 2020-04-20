@@ -1,12 +1,12 @@
 ## Introduction
 
-Proliferation of the amount of data available in every sector has created an increasing demand for Machine learning based systems including recommender systems and they have become quite ubiquitous. Slight variations of recommender systems are currently in use across multiple industries. These systems try to recommend new items to customers/users based on their past preferences and experiences. For example, new restuarants are recommended for someone using a resturant aggregator application or new products to buy for a customer on an e-commerce application. In this project, we primarily focus on Event recommendation systems that traditionally need different algorithms [1] from an item recommender that recommends books or movies. We explore what techniques best work for event recommendations.
+Proliferation of the amount of data available in every sector has created an increasing demand for machine learning based systems including recommender systems and they have become quite ubiquitous. Slight variations of recommender systems are currently in use across multiple industries. These systems try to recommend new items to customers/users based on their past preferences and experiences. For example, new restuarants are recommended for someone using a resturant aggregator application or new products to buy for a customer on an e-commerce application. In this project, we primarily focus on Event recommendation systems that traditionally need different algorithms [1][event-rec] from an item recommender that recommends books or movies. We explore what techniques best work for event recommendations.
 
 ## Dataset
 
-We initially started with an idea to use some practical data from Atlanta Habitat (http://www.atlantahabitat.org/) but some unexpected delays in obtaining the data made fall back upon a publicly avaialbe dataset. The Kaggle Events Dataset (https://www.kaggle.com/c/event-recommendation-engine-challenge) that we used was from an events related anonymous application that hosted a public contest a few years ago. It was spread across different files giving us the choice to pick up custom features and build on top of it. Here is a summary of the dataset components that we used:
+We initially started with an idea to use some practical data from [Atlanta Habitat](http://www.atlantahabitat.org/) but some unexpected delays in obtaining the data made fall back upon a publicly avaialbe dataset. The [Kaggle Events Dataset](https://www.kaggle.com/c/event-recommendation-engine-challenge) that we used was from an events related anonymous application that hosted a public contest a few years ago. It was spread across different files giving us the choice to pick up custom features and build on top of it. Here is a summary of the dataset components that we used:
 
-1. **Events** - This had data about 3137972 events ids, event creators ids, event start time, event location details such as city, state, country, zip, latitude and longitude. Along with this, top 100 most occuring words from all of the events descriptions is taken and their presence checked in each of the descriptions individually. These 100 boolean values are provided for each of the event. Notice the missing location data in the figure below.
+1. **Events** - This had data about 3137972 events related information with an event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with this, top 100 most occuring words from all of the event descriptions are taken and their presence checked in each of the descriptions individually. These 100 boolean values are provided for each of the event. Notice the missing location data in the figure below.
 
    ![alt text](./results/GreenEventMSNO.png "Missing values in events data")
 
@@ -30,7 +30,7 @@ We initially started with an idea to use some practical data from Atlanta Habita
 
 ## Approach
 
-Traditional recommender system algorithms such as collaborative filtering would not work well for event recommendations [1]. The following reasons explain some of the reasoning behind not formalizing our problem as recommendation modelling.
+Traditional recommender system algorithms such as collaborative filtering would not work well for event recommendations [1][event-rec]. The following reasons explain some of the reasoning behind not formalizing our problem as recommendation modelling.
 
 - **Sparse collaborative information:** For user/event based collaborative filtering model to be useful, there must be considerable overlapping of transactions between events and users which is not true in our case. The transactions data provided is too sparse for collaborating filtering to make useful recommendations. 
 - **New item problem:** Fundamentally, an event is very different from a book or movie consumption as there would be no consumption before the event occurs and it cannot be reused. It could be a similar kind of event but some of it's features such as start time and attendance list would be different. 
@@ -155,9 +155,6 @@ To generate recommendations for a user, we consider every event from the given c
 
 ##  Experiments & Results
 
-- metric definiton, why 
-- baseline models, why
-
 The number of traning samlpes that we have from each of the class is represented below. 
 
 Figure of class imbalance.
@@ -175,7 +172,7 @@ F0.5 score is given by the following formula
 1. **Accuracy:** For accuracy, the baseline strategy would be to always predict the most frequent class as that would yield the highest possible accuracy.
 
 2. **F0.5 score:** Precision and recall always counter balance each other. Predicting the minority class (not interested in our case) would give a good lower 
-bound for F0.5 score [2]. 
+bound for F0.5 score [2][naive]. 
 
 
 Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
@@ -246,6 +243,6 @@ As an extension to the project, we would like to rank the generated event recomm
 
 ## References
 
-1. [Event Recommendation in Event-based Social Networks](http://ceur-ws.org/Vol-1210/SP2014_02.pdf)
-2. [What Is the Naive Classifier for Each Imbalanced Classification Metric?](https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/)
+1. [event-rec]: http://ceur-ws.org/Vol-1210/SP2014_02.pdf "Event Recommendation in Event-based Social Networks"
+2. [naive]: https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/ "What Is the Naive Classifier for Each Imbalanced Classification Metric?"
 
