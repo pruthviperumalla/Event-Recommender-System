@@ -243,6 +243,6 @@ As an extension to the project, we would like to rank the generated event recomm
 
 ## References
 
-1. [Event Recommendation in Event-based Social Networks] (http://ceur-ws.org/Vol-1210/SP2014_02.pdf)
-2. [What Is the Naive Classifier for Each Imbalanced Classification Metric?] (https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/)
+1. [Event Recommendation in Event-based Social Networks](http://ceur-ws.org/Vol-1210/SP2014_02.pdf)
+2. [What Is the Naive Classifier for Each Imbalanced Classification Metric?](https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/)
 
