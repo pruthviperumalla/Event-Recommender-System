@@ -1,6 +1,6 @@
 ## Introduction
 
-Proliferation of the amount of data available in every sector has created an increasing demand for machine learning based systems including recommender systems and they have become quite ubiquitous. Slight variations of recommender systems are currently in use across multiple industries. These systems try to recommend new items to customers/users based on their past preferences and experiences. For example, new restuarants are recommended for someone using a resturant aggregator application or new products to buy for a customer on an e-commerce application. In this project, we primarily focus on Event recommendation systems that traditionally need different algorithms [1][event-rec] from an item recommender that recommends books or movies. We explore what techniques best work for event recommendations.
+Proliferation of the amount of data available in every sector has created an increasing demand for machine learning based systems including recommender systems and they have become quite ubiquitous. Slight variations of recommender systems are currently in use across multiple industries. These systems try to recommend new items to customers/users based on their past preferences and experiences. For example, new restuarants are recommended for someone using a resturant aggregator application or new products to buy for a customer on an e-commerce application. In this project, we primarily focus on Event recommendation systems that traditionally need different algorithms [1] from an item recommender that recommends books or movies. We explore what techniques best work for event recommendations.
 
 ## Dataset
 
@@ -30,7 +30,7 @@ We initially started with an idea to use some practical data from [Atlanta Habit
 
 ## Approach
 
-Traditional recommender system algorithms such as collaborative filtering would not work well for event recommendations [1][event-rec]. The following reasons explain some of the reasoning behind not formalizing our problem as recommendation modelling.
+Traditional recommender system algorithms such as collaborative filtering would not work well for event recommendations [1]. The following reasons explain some of the reasoning behind not formalizing our problem as recommendation modelling.
 
 - **Sparse collaborative information:** For user/event based collaborative filtering model to be useful, there must be considerable overlapping of transactions between events and users which is not true in our case. The transactions data provided is too sparse for collaborating filtering to make useful recommendations. 
 - **New item problem:** Fundamentally, an event is very different from a book or movie consumption as there would be no consumption before the event occurs and it cannot be reused. It could be a similar kind of event but some of it's features such as start time and attendance list would be different. 
@@ -172,7 +172,7 @@ F0.5 score is given by the following formula
 1. **Accuracy:** For accuracy, the baseline strategy would be to always predict the most frequent class as that would yield the highest possible accuracy.
 
 2. **F0.5 score:** Precision and recall always counter balance each other. Predicting the minority class (not interested in our case) would give a good lower 
-bound for F0.5 score [2][naive]. 
+bound for F0.5 score [2]. 
 
 
 Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
@@ -243,6 +243,6 @@ As an extension to the project, we would like to rank the generated event recomm
 
 ## References
 
-1. [event-rec]: http://ceur-ws.org/Vol-1210/SP2014_02.pdf "Event Recommendation in Event-based Social Networks"
-2. [naive]: https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/ "What Is the Naive Classifier for Each Imbalanced Classification Metric?"
+1. [Event Recommendation in Event-based Social Networks] (http://ceur-ws.org/Vol-1210/SP2014_02.pdf)
+2. [What Is the Naive Classifier for Each Imbalanced Classification Metric?] (https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/)
 
