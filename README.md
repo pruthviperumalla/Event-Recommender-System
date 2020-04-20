@@ -8,12 +8,15 @@ We initially started with an idea to use some practical data from [Atlanta Habit
 
 1. **Events** - This had data about 3137972 events related information with an event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with this, top 100 most occuring words from all of the event descriptions are taken and their presence checked in each of the descriptions individually. These 100 boolean values are provided for each of the event. Notice the missing location data in the figure below.
 
+   Missing values in events data
    ![alt text](./results/GreenEventMSNO.png "Missing values in events data")
 
+   Frequency of occurence of top 50 representative words
    ![alt text](./results/wordBarPlot.png "Word Distribution")
 
 2. **Users** -  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
+   Missing values in users data
    ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
 
 3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We only have 38202 user id here though.
