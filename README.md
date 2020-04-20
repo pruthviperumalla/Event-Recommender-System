@@ -8,17 +8,17 @@ We initially started with an idea to use some practical data from Atlanta Habita
 
 1. **Events** - This had data about 3137972 events ids, event creators ids, event start time, event location details such as city, state, country, zip, latitude and longitude. Along with this, top 100 most occuring words from all of the events descriptions is taken and their presence checked in each of the descriptions individually. These 100 boolean values are provided for each of the event. Notice the missing location data in the figure below.
 
-![alt text](./results/GreenEventMSNO.png "Missing values in events data")
+   ![alt text](./results/GreenEventMSNO.png "Missing values in events data")
 
-![alt text](./results/wordBarPlot.png "Word Distribution")
+   ![alt text](./results/wordBarPlot.png "Word Distribution")
 
 2. **Users** -  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
-![alt text](./results/GreenUserMSNO.png "Missing values in users data")
+   ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
 
 3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We only have 38202 user id here though.
 
-Figure: Any graphs on friends
+   Figure: Any graphs on friends
 
 4. **Event attendees** -  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
             - "yes" gives us the list of users who marked as going for this event
