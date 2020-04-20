@@ -1,43 +1,43 @@
 ## Introduction
 
-Recommender System is one of the growing demands in the current situation where the amount of information available on the internet is humongous. Recommender Systems can be useful for enterprises and directly for the users so as to decide what is best for them. The recommendation will be based on the past preferences and experiences so as to increase the probability of recommending right things. Recommender systems can recommend items based on the available information, for example, recommending restaurants based on the past dining out options or the available restaurant around a given location. It helps the enterprises (here restaurant owners) as the recommendation system could become an additional source which brings more business. 
+Proliferation of the amount of data available in every sector has created an increasing demand for Machine learning based systems including recommender systems and they have become quite ubiquitous. Slight variations of recommender systems are currently in use across multiple industries. These systems try to recommend new items to customers/users based on their past preferences and experiences. For example, new restuarants are recommended for someone using a resturant aggregator application or new products to buy for a customer on an e-commerce application. In this project, we primarily focus on Event recommendation systems that traditionally need different algorithms [1] from an item recommender that recommends books or movies. We explore what techniques best work for event recommendations.
 
-## Objective
-These recommendations can be extended to books, movies, organised profitable events (like conferences or music festivals) or non-profitable events (such as run for charity or fund raising activities). Recommending these events to the user based on their past experiences and preferences is one of the basic motivations to develop an event recommendation system. This recommendation takes into account varied amounts of information about the users and the events. Information related to the user includes age, gender etc. For events, the information includes the description, type, past attendees, location of the event etc. Apart from this, the system needs some information which relates users to events, like distance between the location user and event, or information if any user’s friends are visiting/organising the event. 	
+## Dataset
 
-This project tries to recommend whether the user would be interested in the given events (with details about type, location) based on the information available about the users, events and user's friends. 
+We initially started with an idea to use some practical data from Atlanta Habitat (http://www.atlantahabitat.org/) but some unexpected delays in obtaining the data made fall back upon a publicly avaialbe dataset. The Kaggle Events Dataset (https://www.kaggle.com/c/event-recommendation-engine-challenge) that we used was from an events related anonymous application that hosted a public contest a few years ago. It was spread across different files giving us the choice to pick up custom features and build on top of it. Here is a summary of the dataset components that we used:
 
-We have used the dataset available on the Kaggle website [1:https://www.kaggle.com/c/event-recommendation-engine-challenge] and the competition was opened 7 years ago hence there are variety of solutions available for this dataset. 
+1. **Events** - This had data about 3137972 events ids, event creators ids, event start time, event location details such as city, state, country, zip, latitude and longitude. Along with this, top 100 most occuring words from all of the events descriptions is taken and their presence checked in each of the descriptions individually. These 100 boolean values are provided for each of the event. Notice the missing location data in the figure below.
 
+![alt text](./results/GreenEventMSNO.png "Missing values in events data")
 
-## Data
+![alt text](./results/wordBarPlot.png "Word Distribution")
 
-The data available on the Kaggle website had huge dataset available. However, the data was not perfect that is it had missing values for several fields. Image below shows the missing values in the location field for users.csv available.
-
+2. **Users** -  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
 ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
 
- Similarly, the dataset available for events had missing values for various fields as shown in the below image. 
- 
- 
-![alt text](./results/GreenEventMSNO.png "Missing values in events data")
+3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We only have 38202 user id here though.
 
-- explain given data, visualize
-![alt text](./results/wordcloud.png "Word Cloud")
-![alt text](./results/wordBarPlot.png "Word Distribution")
-*Fig. 2: Title*
+Figure: Any graphs on friends
 
-- how missing values are handled
+4. **Event attendees** -  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
+            - "yes" gives us the list of users who marked as going for this event
+            - "maybe" gives us the users who marked as maybe going
+            - "no" gives us the list of users who marked as not going
+            - "invited" gives us the list of users who were invited to the event
+            
+5. **User-Event interests** - For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
 
 ## Approach
 
-Formalizing our problem as recommendation modeling and using techniques like collaborative filtering might not be a good idea for the following reasons. 
-- For user/event based collaborative filtering model to be useful, there must be considerable overlapping of transactions between events and users which is not true in our case. The transactions data provided is too sparse for collaborating filtering to make useful recommendations. 
-- Also, there are users and events that don't have an entry in the training data. 
-- Another reason is that recommendations by collaborative filtering are generally generated from the open list of all events whereas the challenge requires us to generate recommendations for a user from the provided closed list of events.
-- Custom features derived from the provided features of users and events may best determine the similarity between user and event and generate meaningful recommendations.
+Traditional recommender system algorithms such as collaborative filtering would not work well for event recommendations [1]. The following reasons explain some of the reasoning behind not formalizing our problem as recommendation modelling.
 
-For the above reasons, we model this problem as a binary classification problem in which given a pair of user and event, we classify whether the user is interested in attending the event. Overall, the recommendation system can be divided into three phases- feature extraction, interest prediction and generation of recommendations. 
+- **Sparse collaborative information:** For user/event based collaborative filtering model to be useful, there must be considerable overlapping of transactions between events and users which is not true in our case. The transactions data provided is too sparse for collaborating filtering to make useful recommendations. 
+- **New item problem:** Fundamentally, an event is very different from a book or movie consumption as there would be no consumption before the event occurs and it cannot be reused. It could be a similar kind of event but some of it's features such as start time and attendance list would be different. 
+- **Limited training data:** In our case specifically, there are users and events that don't have an entry in the training data. 
+- **Available custom features**: Custom features derived from the provided features of users and events may best determine the similarity between user and event and generate meaningful recommendations.
+
+For the above reasons, we model this problem as a binary classification problem in which given a pair of user and event, we classify whether the user is interested in attending the event. Overall, the recommendation system can be divided into three phases- feature extraction, interest prediction and generation of recommendations. We had to spend most of our time on feature extraction in this experiment.
 
 <!--The approach is to first extract features related to user, features related to event and custom features that measure the similarity between user and event based on the attedance history available. Then, use these features to learn supervised model that predicts if a user is interested in an event given.  -->
 
@@ -145,7 +145,7 @@ For the above reasons, we model this problem as a binary classification problem 
    <img  src="./results/heatmap.png"> </div>
    <div align = "center"><i>Figure 3: Correlation Matrix</i> </div>
       
-      
+- how missing values are handled
 
 ### 2. Interest Prediction
 In this phase, we use the above extracted features to learn a classifier that predicts if a user is interested in a given event. We experimented with several supervised binary classification models with interested and not interested as the classes. Experiments performed with each of these models and results obtained are discussed in detail in the next section.
@@ -157,6 +157,26 @@ To generate recommendations for a user, we consider every event from the given c
 
 - metric definiton, why 
 - baseline models, why
+
+The number of traning samlpes that we have from each of the class is represented below. 
+
+Figure of class imbalance.
+
+This shows us there is a class imbalance where the number of examples from "not interested" class is almost three times the number of samples from interested class. In such situations of class imbalance, a naive classifier that always predicts a "not interested" class would yield very high accuracies that would sometimes be greater than our trained model's accuracy. 
+
+Therefore, accuracy should not be the only metric to interpret the results of various models and we looked for other baseline 
+metrics such as F measure. In our current use case, we would use our class prediction to send out event invites to users who would potentitally attend. Since we do not want to spam all the users, we want the invites to more precise and we have chosen F0.5 measure specifcally as it gives more importance to precision than recall.
+
+F0.5 score is given by the following formula
+
+
+### Baseline strategy:
+
+1. **Accuracy:** For accuracy, the baseline strategy would be to always predict the most frequent class as that would yield the highest possible accuracy.
+
+2. **F0.5 score:** Precision and recall always counter balance each other. Predicting the minority class (not interested in our case) would give a good lower 
+bound for F0.5 score [2]. 
+
 
 Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
 
@@ -226,4 +246,6 @@ As an extension to the project, we would like to rank the generated event recomm
 
 ## References
 
+1. [Event Recommendation in Event-based Social Networks](http://ceur-ws.org/Vol-1210/SP2014_02.pdf)
+2. [What Is the Naive Classifier for Each Imbalanced Classification Metric?](https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/)
 
