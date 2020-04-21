@@ -8,8 +8,10 @@ We initially started with the idea to use events and volunteer data from [Atlant
 
 1. **Events** - This has information about 3137972 events with the columns: event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with these, the top 100 most frequently occurring words from all the event descriptions are determined and their frequency is provided for each of the events. In other words, a bag of words of size 100 is provided for each event as a representative of the event's description. Figure 2 shows the frequency distribution of the top 50 words across all the events. We can notice the missing location data in figure 1 below.
 
-   Figure: Missing values in events data
    ![alt text](./results/GreenEventMSNO.png "Missing values in events data")
+    <div align="center">
+    <i>Figure 1: Missing values in events data</i>
+   </div>
 
    Figure: Frequency of occurence of top 50 representative words
    ![alt text](./results/wordBarPlot.png "Word Distribution")
@@ -74,7 +76,6 @@ For the above reasons, we model this problem as a binary classification problem 
       6. Ratio of number of friends who might be attending with number of friends attending (f12)
       7. Ratio of number of friends invited with number of friends attending (f13)
    
-
 
 3. ***Local convenience***
 
