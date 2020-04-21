@@ -363,10 +363,14 @@ tr:nth-child(even) {
 ## Conclusion and Future Work
 
 We took the approach of experimenting and comparing a few supervised models to determine which technique works best to predict what events users will be interested in based on events they’ve responded to in the past, user demographic information, and what events they’ve interacted within the application. Our current results show above baseline performance (F0.5 score) for Random Forest, KNN, Neural Network and SVM with Random Forest performing the best out of all. Experiments also show that an ensemble model of Random Forest and KNN further improves the F0.5 score by 2.3%. We conclude that the hand-crafted custom features to measure the similarity between user and event perform reasonably well on the task of user interest prediction even though the transactions between users and events are sparse.
+
 As an extension to the project, we would like to rank the generated event recommendations based on the probability of user interest predicted by the models. Another extension would be to employ a new feature of user clustering by modelling friendships between users as a graph and detecting communities.
 
 ## References
 
 1. [Event Recommendation in Event-based Social Networks](http://ceur-ws.org/Vol-1210/SP2014_02.pdf)
 2. [What Is the Naive Classifier for Each Imbalanced Classification Metric?](https://machinelearningmastery.com/naive-classifiers-imbalanced-classification-metrics/)
+3. [Data and Problem Understanding](https://datathinking.wordpress.com/2013/02/10/event-recommendation-engine-challenge-kaggle/)
+4. [Event Recommendation Engine Challenge](https://www.kaggle.com/c/event-recommendation-engine-challenge/)
+5. [Event Recommendation Contest Blog](http://webmining.olariu.org/event-recommendation-contest-on-kaggle/)
 
