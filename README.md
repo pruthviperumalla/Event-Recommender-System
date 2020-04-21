@@ -41,7 +41,7 @@ We initially started with the idea to use events and volunteer data from [Atlant
       - "no" is the list of users who indicated that they were not going to the event.
       - "invited" is the list of users who were invited to the event.  
       
-5. **User-Event interests**: For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
+5. **User-Event interests**: For 15398 event-user pairs, we have information on whether this user was invited to the event, the timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user indicated "interested" or "not interested" for the event.
 
 ## Approach
 
