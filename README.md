@@ -172,6 +172,7 @@ The number of traning samlpes that we have from each of the class is represented
 <img  src="./results/classImbalance.png"> </div>
 <div align = "center"><i>Figure: Class representation in training data</i> </div>
 
+
 This shows us there is a class imbalance where the number of examples from "not interested" class is almost three times the number of samples from interested class. In such situations of class imbalance, a naive classifier that always predicts a "not interested" class would yield very high accuracies that would sometimes be greater than our trained model's accuracy. 
 
 Therefore, accuracy should not be the only metric to interpret the results of various models and we looked for other baseline 
@@ -180,7 +181,7 @@ metrics such as F measure. In our current use case, we would use our class predi
 F0.5 score is given by the following formula
 
 <div align="center">
-<img  src="./results/fbeta.png"> </div>
+<img  src="./results/fbeta.png" border="1"> </div>
 
 
 #### Baseline strategy:
