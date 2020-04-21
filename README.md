@@ -49,7 +49,6 @@ We initially started with the idea to use events and volunteer data from [Atlant
    <div>
    <p><br></p>
    </div>
-  
 5. **User-Event interests**: For 15398 event-user pairs, we have information on whether this user was invited to the event, the timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user indicated "interested" or "not interested" for the event.
 
 ## Approach
