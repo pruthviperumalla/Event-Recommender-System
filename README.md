@@ -74,8 +74,8 @@ For the above reasons, we model this problem as a binary classification problem 
 
    There is a higher chance of our target user attending an event that is already popular. To measure the popularity of an event, we extract the following metrics based on user attendance and set up various features using these.   
       1. Number of users who marked "attending" for our event (f0)
-      2. Number of users who marked "no attending" for our event (f1)
-      3. Number of users who marked "may be" for our event (f2)
+      2. Number of users who marked "not attending" for our event (f1)
+      3. Number of users who marked "may be attending" for our event (f2)
       4. Number of users who are invited to the event (f3)
       5. Ratio of number of users not attending with number of users attending (f4)
       6. Ratio of number of users who might be attending with number of users attending (f5)
@@ -91,8 +91,7 @@ For the above reasons, we model this problem as a binary classification problem 
       5. Ratio of number of friends not attending with number of friends attending (f11)
       6. Ratio of number of friends who might be attending with number of friends attending (f12)
       7. Ratio of number of friends invited with number of friends attending (f13)
-   
-   
+    
    
 3. ***Local convenience***
 
