@@ -93,7 +93,6 @@ For the above reasons, we model this problem as a binary classification problem 
       7. Ratio of number of friends invited with number of friends attending (f13)
    
 
-  
 3. ***Local convenience***
 
    Users are more likely to attend an event that is happening nearby and one that is preferably in the same city. From the user and event details, we extract two boolean features. The first one checks if the user and event are in the same city and the second one checks if they are in the same country. For a better understanding we plotted the all the city locations where events are happening and where the user are located in a world map. 
@@ -110,7 +109,7 @@ For the above reasons, we model this problem as a binary classification problem 
    </div>
    <div align="center">
     <i>User city locations scaled by number of users in a city</i>
-
+   
 
 4. ***Schedule convenience***
 
