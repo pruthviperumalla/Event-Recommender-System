@@ -243,13 +243,14 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
    We used a simple fully connected multi-layer perceptron to train our network. To decide on the number of hidden layers and number of nodes in each layer, we experimented with various values and started with the intuitive rule that the number of nodes in a hidden layer should be between the number of input nodes (31, in our case) and the number of output nodes(2, in our case). We experimented with multiple hidden layers and also by varying the number of nodes in each layer (results in table 1). One hidden layer with 25 nodes yielded the best results in this case. Unlike logistic regression, both the accuracy and fbeta score of neural networks was more than our baseline model. This can be explained by the fact that the hidden layer in a neural network adds some non linearity and was able to better model our data.
    
-   **Table 1: Accuracy and Fbeta score of neural network with varying number of nodes and hidden layers**
    
    | **No. of nodes in each hidden layer** | **Accuracy**  | **Fbeta Score**  |
    | 15 | 0.736038961038961  | 0.41358293426208087  |
    | 20, 10 | 0.7126623376623377  | 0.396498455200824  |
    | 25 | 0.7321428571428571  | 0.4554455445544554  |
    | 30 | 0.7243506493506493  | 0.4235211760588029  |
+   <i>Table 1: Accuracy and Fbeta score of neural network with varying number of nodes and hidden layers</i>
+   
 
 <br>
 
@@ -269,7 +270,6 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
 
 
-**Table 2: Test accuracy and fbeta score of various models**
 <style>
 table {
   font-family: arial, sans-serif;
@@ -351,6 +351,7 @@ tr:nth-child(even) {
  float:left;
 }
 </style>
+<i>Table 2: Test accuracy and fbeta score of various models</i>
 
 <div class="image123">
     <div class="imgContainer">
