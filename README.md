@@ -17,7 +17,9 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <div align="center">
     <i>Figure 2: Frequency distribution of top 50 words across events' descriptions</i>
    </div>  
-   </br>
+   <div>
+   <p><br></p>
+   </div>
 2. **Users**:  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
    ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
@@ -34,13 +36,17 @@ We initially started with the idea to use events and volunteer data from [Atlant
    <div align="center">
     <i>Figure 4: Distribution of number of friends among given users </i>
    </div>
-   </br>
+   <div>
+   <p><br></p>
+   </div>
 4. **Event attendees**:  For some of the events provided in the Events file(24144 events to be precise), this file contains four user id lists. For every event id, 
       - "yes" is the list of users who indicated that they were going to the event.
       - "maybe" is the list of users who indicated that they maybe going to the event.
       - "no" is the list of users who indicated that they were not going to the event.
       - "invited" is the list of users who were invited to the event.  
-      </br>
+   <div>
+   <p><br></p>
+   </div>
 5. **User-Event interests**: For 15398 event-user pairs, we have information on whether this user was invited to the event, the timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user indicated "interested" or "not interested" for the event.
 
 ## Approach
