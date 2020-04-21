@@ -80,7 +80,9 @@ For the above reasons, we model this problem as a binary classification problem 
       6. Ratio of number of users who might be attending to be number of users attending (f5)
       7. Ratio of number of users invited to the number of users attending (f6)  
       
-
+   <div>
+   <p><br></p>
+   </div>
 2. ***Friends' attendance based metrics***
 
    Building on top of the above feature, considering only the attendance of current user's friends might give us a more reliable measure of the current user's interest in the event. Hence, we extracted a similar set of features restricting ourselves to consider only the friends of the current user instead of all the users. The following features are extracted in this way. We also added the normalized versions (by the total number of friends) of some of these features as additional features. 
@@ -91,7 +93,9 @@ For the above reasons, we model this problem as a binary classification problem 
       5. Ratio of number of friends not attending to the number of friends attending (f11)
       6. Ratio of number of friends who might be attending to the number of friends attending (f12)
       7. Ratio of number of friends invited to the number of friends attending (f13) 
-   
+   <div>
+   <p><br></p>
+   </div>
 3. ***Local convenience***
 
    Users are more likely to attend an event that is happening nearby and one that is preferably in the same city. From the user and event details, we extract two boolean features. The first one indicates whether the user and the event are in the same city and the second one indicates whether they are in the same country. Figures 5 and 6 show all the city locations where the events are happening and where the users are located on a world map.
@@ -128,6 +132,9 @@ For the above reasons, we model this problem as a binary classification problem 
     <i>Figure 7: Time difference between event start time and user notification time</i>
    </div>
    
+   <div>
+   <p><br></p>
+   </div>
 
 5. ***Event similarity based on previously attended events***
 
