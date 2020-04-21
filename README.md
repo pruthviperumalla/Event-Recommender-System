@@ -180,9 +180,7 @@ For the above reasons, we model this problem as a binary classification problem 
       
 #### Feature Correlations:
 
-We also tried looking at the correlation between various features that we extracted. As expected, features such as "same_city" and "same_country",  ratio based features that are built on same metrics such as f7,f8,f9 and cluster based similarity features are highly correlated. Apart from these that are correlated because of the method in which we extracted these features, the "invited" and "yes" features look highly correalted. Intuitively this is also expected as the more invites we send for our event, the more "yes" responses we might get. 
-
-Below is the heatmap for the correlation between the features. 
+We also attempted looking at the correlation between the various features that we extracted. As expected, features such as “same_city” and “same_country”, ratio based features that are built on the same metrics such as f7,f8,f9 and cluster-based similarity features are highly correlated. Apart from these features that are correlated because of the method used for their extraction, the “invited” and “yes” features also seem highly correlated. Intuitively, as more number of invitations are sent for an event, a higher number of "yes" responses are expected. Below is the heatmap for the correlation between the features. 
       
    <div align="center">
    <img  src="./results/heatmap.png"> </div>
