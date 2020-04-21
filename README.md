@@ -25,6 +25,7 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <i>Figure 3: Missing values in users data</i>
    </div>  
    <div></div>
+  
 3. **User friends**: This contains information in the form of a user id and the corresponding list of friend ids who are friends of the user. This social data is provided for only 38202 users. Figure 4 gives a picture of the distribution of the number of friends among the users from training data. Notice that among 38202 users, around one third have less than 250 friends and almost two-thirds of them have more than 250 friends indicating that the friends might not be based on interests and arbitrary.
 
    ![alt text](./results/friendsDist.png "Friends distribution among users")
