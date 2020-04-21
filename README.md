@@ -222,7 +222,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
 - **Random Forest**
 
-   After tuning hyperparameters using k folds cross-validation, we got the best results for an ensemble of 100 trees with depth limited to 15, Gini impurity as the criterion to split, and with bootstrapping of the total number of data points drawn as samples and the square root of the total number of features considered for the construction of a tree. The relative feature importances determined by the Random Forest model are shown in figure 10.
+   After tuning hyperparameters using k folds cross-validation, we got the best results for an ensemble of 100 trees with depth limited to 15, Gini impurity as the criterion to split, and with bootstrapping of the total number of data points drawn as samples and the square root of the total number of features considered for the construction of a tree. The relative feature importances determined by the Random Forest model are shown in figure 11.
 
    <div align="center">
    <img  src="./results/rf_feat_imp.png"> </div>
@@ -243,7 +243,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
    We used a simple fully connected multi-layer perceptron to train our network. To decide on the number of hidden layers and number of nodes in each layer, we experimented with various values and started with the intuitive rule that the number of nodes in a hidden layer should be between the number of input nodes (31, in our case) and the number of output nodes(2, in our case).
    
-   | No. of nodes in each hidden layer | Accuracy  | Fbeta Score  |
+   | No. of nodes in each hidden layer | Accuracy  | F-beta Score  |
    | 15 | 0.736038961038961  | 0.41358293426208087  |
    | 20, 10 | 0.7126623376623377  | 0.396498455200824  |
    | 25 | 0.7321428571428571  | 0.4554455445544554  |
@@ -263,8 +263,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
    To further improve the performance, we experimented with an ensemble of several of the above models we implemented. We obtained the best validation as well as the test results with an ensemble of Random Forest classifier and KNN classifier. These two classifiers are ensembled by the hard(majority) voting mechanism with 0.9 weight for Random Forest and 0.1 weight for KNN. In terms of F0.5 score, the ensemble model shows 2.3% improvement over the Random Forest classifier and 4.8% improvement over the KNN classifier.
 
-
-Here is a comparison of test accuracy and test fbeta scores of various models that we trained.
+ Test accuracies and f-beta scores of various models are summarized in the below table. Figures 12 and 13 show train vs test accuracy and train vs test f-beta scores of various models. 
 
 
 <style>
@@ -294,7 +293,7 @@ tr:nth-child(even) {
      <tr>
        <th>Model</th>
        <th>Accuracy</th>
-       <th>Fbeta (0.5) score</th>
+       <th>F-beta (0.5) score</th>
      </tr>
      <tr>
        <td>Baseline</td>
@@ -356,7 +355,7 @@ tr:nth-child(even) {
     </div>
     <div>
         <img src="./results/fbeta.png" height="300" width="400">
-        <div align = "center"> <i> Figure 12: Train vs Test Fbeta plot </i> </div>
+        <div align = "center"> <i> Figure 13: Train vs Test F-beta plot </i> </div>
     </div>
 </div>
 
