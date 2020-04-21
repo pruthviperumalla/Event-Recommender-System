@@ -80,7 +80,7 @@ For the above reasons, we model this problem as a binary classification problem 
       6. Ratio of number of users who might be attending with number of users attending (f5)
       7. Ratio of number of users invited with number of users attending (f6)
 
-2. ***Friend's attendance based metrics***
+2. ***Friends' attendance based metrics***
 
    Building on top of the first feature, looking at only the attendance of current user's friends might give us a stronger measure of current user's interests with that of the event. Hence, we extracted a similar set of features resitrcting ourselves to only look at the friends of current user instead of everyone. The following features are extracted in this way and we also added the normalized version (by total number of friends) of some of these features as a separate feature. 
       1. Number of friends who marked "attending" for our event (f7) and normalized (f14)
