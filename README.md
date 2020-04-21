@@ -30,14 +30,12 @@ We initially started with the idea to use events and volunteer data from [Atlant
    ![alt text](./results/friendsDist.png "Friends distribution among users")
    <div align="center">
     <i>Figure 4: Distribution of number of friends among given users </i>
-   </div>
-   <br>
+   </div>  
 4. **Event attendees**:  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
       - "yes" gives us the list of users who marked as going for this event
       - "maybe" gives us the users who marked as maybe going
       - "no" gives us the list of users who marked as not going
-      - "invited" gives us the list of users who were invited to the event
-    <br>
+      - "invited" gives us the list of users who were invited to the event  
 5. **User-Event interests**: For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
 
 ## Approach
@@ -68,7 +66,6 @@ For the above reasons, we model this problem as a binary classification problem 
       5. Ratio of number of users not attending with number of users attending (f4)
       6. Ratio of number of users who might be attending with number of users attending (f5)
       7. Ratio of number of users invited with number of users attending (f6)
-
 
 
 2. ***Friend's attendance based metrics***
@@ -114,7 +111,7 @@ For the above reasons, we model this problem as a binary classification problem 
 
 5. ***Event similarity based on previously attended events***
 
-   Analysing the common attenders between two events might give us hints on how likely a user will attend the second event given that he has attended the first event. Higher number of common attenders would indicate higher similarity between the events and higher likeliness to attend to both the events. In this feature we try to model this event similarity by looking at the common attenders between our current target event and the events our current user has previously attended. For each such pair, we normalize the number of intersecting users by dividing them with the number of attendees from the lower attended event. The average of all such pairs is taken as our similarity score.
+   Analyzing the common attenders between two events might give us hints on how likely a user will attend the second event given that he has attended the first event. Higher number of common attenders would indicate higher similarity between the events and higher likeliness to attend to both the events. In this feature we try to model this event similarity by looking at the common attenders between our current target event and the events our current user has previously attended. For each such pair, we normalize the number of intersecting users by dividing them with the number of attendees from the lower attended event. The average of all such pairs is taken as our similarity score.
 
 6. ***Sometimes, people just prefer the familiar***
    
@@ -163,13 +160,11 @@ For the above reasons, we model this problem as a binary classification problem 
 Many of our features ended up with missing values as some of the event and user ids from the training data do not have a corresponding row in the event detail or user detail tables. We filled this missing data with a single forward fill followed a backward fill to handle the edge cases.
 WRITE MORE
 
-
 ### 2. Interest Prediction
 In this phase, we use the above extracted features to learn a classifier that predicts if a user is interested in a given event. We experimented with several supervised binary classification models with interested and not interested as the classes. Experiments performed with each of these models and results obtained are discussed in detail in the next section.
 
 ### 3. Generation of Recommendations
 To generate recommendations for a user, we consider every event from the given closed list and predict if user is interested in it. The list of events that the system classifies as interested are then recommended to the user.
-
 
 ##  Experiments & Results
 
