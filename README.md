@@ -341,14 +341,20 @@ tr:nth-child(even) {
    </table>
 </div>
 
+<style>
+.imgContainer{
+ float:left;
+}
+</style>
+
 <div class="image123">
     <div class="imgContainer">
-        <img src="./results/accuracy.png" height="400" width="400">
-        <p>Figure: Accuracy plot</p>
+        <img src="./results/accuracy.png" height="350" width="450">
+        <div align = "center"> <i> Figure: Accuracy plot </i> </div>
     </div>
     <div>
-        <img src="./results/fbeta.png" height="400" width="400">
-        <p>Figure: Fbeta score plot</p>
+        <img src="./results/fbeta.png" height="350" width="450">
+        <div align = "center"> <i> Figure: Fbeta plot </i> </div>
     </div>
 </div>
 
