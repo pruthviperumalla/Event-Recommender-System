@@ -108,7 +108,7 @@ For the above reasons, we model this problem as a binary classification problem 
    </div>
    <div align="center">
     <i>User city locations scaled by number of users in a city</i>
-   
+
 
 4. ***Schedule convenience***
 
