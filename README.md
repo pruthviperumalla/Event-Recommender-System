@@ -32,11 +32,11 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <i>Figure 4: Distribution of number of friends among given users </i>
    </div>
      
-4. **Event attendees**:  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
-      - "yes" gives us the list of users who marked as going for this event
-      - "maybe" gives us the users who marked as maybe going
-      - "no" gives us the list of users who marked as not going
-      - "invited" gives us the list of users who were invited to the event  
+4. **Event attendees**:  For some of the events provided in the Events file(24144 events to be precise), this file contains four user id lists. For every event id, 
+      - "yes" is the list of users who indicated that they were going to the event.
+      - "maybe" is the list of users who indicated that they maybe going to the event.
+      - "no" is the list of users who indicated that they were not going to the event.
+      - "invited" is the list of users who were invited to the event.  
       
 5. **User-Event interests**: For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
 
