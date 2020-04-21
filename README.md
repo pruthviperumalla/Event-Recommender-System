@@ -18,7 +18,7 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <i>Figure 2: Frequency distribution of top 50 words across events' descriptions</i>
    </div>  
   
-
+<\br>
 2. **Users**:  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
    ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
@@ -26,14 +26,15 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <i>Figure 3: Missing values in users data</i>
    </div>  
    
-
+<\br>
 3. **User friends**: This contains information in the form of a user id and the corresponding list of friend ids who are friends of the user. This social data is provided for only 38202 users. Figure 4 gives a picture of the distribution of number of friends among the users from training data. Notice that among 38202 users, around one third have less than 250 friends and almost two third of them have more than 250 friends indicating that the friends might not be based on interests and arbitary. 
 
    ![alt text](./results/friendsDist.png "Friends distribution among users")
    <div align="center">
     <i>Figure 4: Distribution of number of friends among given users </i>
    </div>
-     
+ 
+<\br>
 4. **Event attendees**:  For some of the events provided in the Events file(24144 events to be precise), this file contains four user id lists. For every event id, 
       - "yes" is the list of users who indicated that they were going to the event.
       - "maybe" is the list of users who indicated that they maybe going to the event.
