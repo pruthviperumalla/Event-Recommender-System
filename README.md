@@ -275,6 +275,7 @@ Here is a comparison of test accuracy and test fbeta scores on various models th
 | Logistic Regression | 0.7357142857142858 | 0.18850987432675045 |
 | Ensemble Learning | 0.7818181818181819 | 0.5642923219241444 |
 
+<style>
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
