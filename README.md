@@ -54,25 +54,25 @@ For the above reasons, we model this problem as a binary classification problem 
 
    There is a higher chance of our target user attending an event that is already popular. To measure the popularity of an event, we extract the following metrics based on user attendance and set up various features using these. 
    
-      - Number of users who marked "attending" for our event
-      - Number of users who marked "no attending" for our event
-      - Number of users who marked "may be" for our event
-      - Number of users who are invited to the event
-      - Ratio of number of users not attending with number of users attending
-      - Ratio of number of users who might be attending with number of users attending
-      - Ratio of number of users invited with number of users attending
+      - Number of users who marked "attending" for our event (f0)
+      - Number of users who marked "no attending" for our event (f1)
+      - Number of users who marked "may be" for our event (f2)
+      - Number of users who are invited to the event (f3)
+      - Ratio of number of users not attending with number of users attending (f4)
+      - Ratio of number of users who might be attending with number of users attending (f5)
+      - Ratio of number of users invited with number of users attending (f6)
 
 2. ***Friend's attendance based metrics***
 
-   Building on top of the first feature, looking at only the attendance of current user's friends might give us a stronger measure of current user's interests with that of the event. Hence, we extracted a similar set of features resitrcting ourselves to only look at the friends of current user instead of everyone. The following features are extracted in this way. 
+   Building on top of the first feature, looking at only the attendance of current user's friends might give us a stronger measure of current user's interests with that of the event. Hence, we extracted a similar set of features resitrcting ourselves to only look at the friends of current user instead of everyone. The following features are extracted in this way and we also added the normalized version (by total number of friends) of some of these features as a separate feature. 
    
-      - Number of friends who marked "attending" for our event
-      - Number of friends who marked "no attending" for our event
-      - Number of friends who marked "may be" for our event
-      - Number of friends who are invited to the event
-      - Ratio of number of friends not attending with number of friends attending
-      - Ratio of number of friends who might be attending with number of friends attending
-      - Ratio of number of friends invited with number of friends attending
+      - Number of friends who marked "attending" for our event (f7) and normalized (f14)
+      - Number of friends who marked "no attending" for our event (f8) and normalized (f15)
+      - Number of friends who marked "may be" for our event (f9) and normalized (f16)
+      - Number of friends who are invited to the event (f10) and normalized (f17)
+      - Ratio of number of friends not attending with number of friends attending (f11)
+      - Ratio of number of friends who might be attending with number of friends attending (f12)
+      - Ratio of number of friends invited with number of friends attending (f13)
 
 3. ***Local convenience***
 
