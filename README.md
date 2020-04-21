@@ -210,6 +210,7 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 - **Neural Network**
 
    We used a simple fully connected multi layer perceptron to train our network. To decide on the number of hidden layers and number of nodes in each layer, we experimented with various values and started with the intuitive rule that the number of nodes in a hidden layer should be between the number of input nodes (31, in our case) and the number of output nodes(2, in our case).
+   
    | No. of nodes in each hidden layer | Accuracy  | Fbeta Score  |
    | 15 | 0.736038961038961  | 0.41358293426208087  |
    | 20, 10 | 0.7126623376623377  | 0.396498455200824  |
@@ -232,7 +233,6 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 
 #### Results and analysis:
 
-<center>
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
 | Baseline | 0.731718 | 0.31416400425985086 |
@@ -243,7 +243,6 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 | Neural Net | 0.7321428571428571 | 0.4554455445544554 |
 | Logistic Regression | 0.7357142857142858 | 0.18850987432675045 |
 | Ensemble Learning | 0.7818181818181819 | 0.5642923219241444 |
-</center>
 
 
 ## Conclusion and Future Work
