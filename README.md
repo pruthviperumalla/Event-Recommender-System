@@ -6,7 +6,7 @@ The proliferation of the amount of data available in every sector has created an
 
 We initially started with the idea to use events and volunteer data from [Atlanta Habitat](http://www.atlantahabitat.org/), a non-profit organization. But, some unexpected delays in obtaining the data made us fall back on a publicly available dataset. The [Kaggle Events Dataset](https://www.kaggle.com/c/event-recommendation-engine-challenge) that we used is from an events related anonymous application that hosted a public contest a few years ago. The data is varied and spread across different files giving us the chance to pick up custom features and build on top of them. Here is a summary of the dataset components that we used:
 
-1. **Events** - This has information about 3137972 events with the columns: event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with these, the top 100 most frequently occurring words from all the event descriptions are determined and their frequency is provided for each of the events. In other words, a bag of words of size 100 is provided for each event as a representative of the event's description. Figure 2 shows the frequency distribution of the top 50 words across all the events. We can notice the missing location data in figure 1 below.
+1. **Events** - This file contains information about 3137972 events with the columns: event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with these, the top 100 most frequently occurring words from all the event descriptions are determined and their frequency is provided for each of the events. In other words, a bag of words of size 100 is provided for each event as a representative of the event's description. Figure 2 shows the frequency distribution of the top 50 words across all the events. We can notice the missing location data in figure 1 below.
 
    ![alt text](./results/GreenEventMSNO.png "Missing values in events data")
     <div align="center">
@@ -25,10 +25,12 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <i>Figure 3: Missing values in users data</i>
    </div>
 
-3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We have this information for only 38202 users here.
+3. **User friends** - This contains information in the form of a user id and the corresponding list of user ids who are friends of the user. This social data is provided for only 38202 users.  <EXPLAIN THE FIGURE>
 
-   Figure: Distribution of number of friends among given users
    ![alt text](./results/friendsDist.png "Friends distribution among users")
+   <div align="center">
+    <i>Figure 4: Distribution of number of friends among given users </i>
+   </div>
 
 4. **Event attendees** -  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
       - "yes" gives us the list of users who marked as going for this event
