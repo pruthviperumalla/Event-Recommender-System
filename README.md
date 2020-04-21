@@ -274,6 +274,71 @@ Here is a comparison of test accuracy and test fbeta scores on various models th
 | Logistic Regression | 0.7357142857142858 | 0.18850987432675045 |
 | Ensemble Learning | 0.7818181818181819 | 0.5642923219241444 |
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Accuracy</th>
+    <th>Fbeta (0.5) score</th>
+  </tr>
+  <tr>
+    <td>Baseline</td>
+    <td>0.731718</td>
+    <td>0.31416400425985086</td>
+  </tr>
+  <tr>
+    <td>Gaussian Naive Bayes</td>
+    <td>0.7230519480519481</td>
+    <td>0.27206771463119706</td>
+  </tr>
+  <tr>
+    <td>Random Forest</td>
+    <td>0.775974025974026</td>
+    <td>0.5416272469252602</td>
+  </tr>
+  <tr>
+    <td>KNN</td>
+    <td>0.7665584415584416</td>
+    <td>0.5161854768153981</td>
+  </tr>
+  <tr>
+    <td>SVM</td>
+    <td>0.6983766233766234</td>
+    <td>0.3951277480689246</td>
+  </tr>
+  <tr>
+    <td>Neural Net</td>
+    <td>0.7321428571428571</td>
+    <td>0.4554455445544554</td>
+  </tr>
+  <tr>
+    <td>Logistic Regression</td>
+    <td>0.7357142857142858</td>
+    <td>0.18850987432675045</td>
+  </tr>
+  <tr>
+    <td>Ensemble Learning</td>
+    <td>0.7818181818181819</td>
+    <td>0.5642923219241444</td>
+  </tr>
+</table>
+
 Accuracy            |  F0.5 score
 :-------------------------:|:-------------------------:
 ![alt text](./results/accuracy.png "accuracy")  |  ![alt text](./results/fbeta.png "fbeta")
