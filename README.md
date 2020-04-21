@@ -168,7 +168,9 @@ To generate recommendations for a user, we consider every event from the given c
 
 The number of traning samlpes that we have from each of the class is represented below. 
 
-Figure of class imbalance.
+<div align="center">
+<img  src="./results/heatmap.png"> </div>
+<div align = "center"><i>Figure: Class representation in training data</i> </div>
 
 This shows us there is a class imbalance where the number of examples from "not interested" class is almost three times the number of samples from interested class. In such situations of class imbalance, a naive classifier that always predicts a "not interested" class would yield very high accuracies that would sometimes be greater than our trained model's accuracy. 
 
