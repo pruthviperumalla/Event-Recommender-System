@@ -283,7 +283,6 @@ Here is a comparison of test accuracy and test fbeta scores on various models th
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
 }
 
 td, th {
