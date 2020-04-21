@@ -249,7 +249,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
    | 25 | 0.7321428571428571  | 0.4554455445544554  |
    | 30 | 0.7243506493506493  | 0.4235211760588029  |
 
-<div> <p> <br> </p> </div>
+<br>
 
 - **Support Vector Machine**
 
