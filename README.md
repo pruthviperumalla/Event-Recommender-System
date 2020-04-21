@@ -198,7 +198,7 @@ metrics such as F measure. In our current use case, we would use our class predi
 F0.5 score is given by the following formula
 
 <div align="center">
-<img  src="./results/fbeta.png" border="1"> </div>
+<img  src="./results/fbeta_eqn.png" border="1"> </div>
 
 
 #### Baseline strategy:
