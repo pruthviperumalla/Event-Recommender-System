@@ -100,14 +100,14 @@ For the above reasons, we model this problem as a binary classification problem 
     <img  src="./results/location_events.png" width="650" >
    </div>
    <div align="center">
-    <i>Event cities from training data scaled by number of events in a city</i>
+    <i>Figure 5: Event cities from training data scaled by number of events in a city</i>
    </div>
    
    <div align="center" style="align-items: center;justify-content: center;">
     <img  src="./results/location_users.png" width="650">
    </div>
    <div align="center">
-    <i>User city locations scaled by number of users in a city</i>
+    <i>Figure 6: User city locations scaled by number of users in a city</i>
    
 
 4. ***Schedule convenience***
