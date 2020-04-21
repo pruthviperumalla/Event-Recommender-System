@@ -184,7 +184,7 @@ We also attempted looking at the correlation between the various features that w
       
    <div align="center">
    <img  src="./results/heatmap.png"> </div>
-   <div align = "center"><i>Figure 9: Correlation Matrix</i> </div>
+   <div align = "center"><i>Figure 9: Feature Correlation Matrix</i> </div>
        
 
 ### 2. Interest Prediction
@@ -195,19 +195,17 @@ To generate recommendations for a user, we consider every event from the given c
 
 ##  Experiments & Results
 
-The number of traning samlpes that we have from each of the class is represented below. 
+#### Evaluation Metrics
+The number of training samples available for each class is represented below. 
 
 <div align="center">
 <img  src="./results/classImbalance.png"> </div>
 <div align = "center"><i>Figure 10: Class representation in training data</i> </div>
 
 
-This shows us there is a class imbalance where the number of examples from "not interested" class is almost three times the number of samples from interested class. In such situations of class imbalance, a naive classifier that always predicts a "not interested" class would yield very high accuracies that would sometimes be greater than our trained model's accuracy. 
+This shows that there is a class imbalance where the number of examples of the "not interested" class is almost three times the number of samples of the "interested" class. In such situations of class imbalance, a naive classifier that always predicts a "not interested" class would yield very high accuracies that would sometimes be greater than our trained model's accuracy.
 
-Therefore, accuracy should not be the only metric to interpret the results of various models and we looked for other baseline 
-metrics such as F measure. In our current use case, we would use our class prediction to send out event invites to users who would potentitally attend. Since we do not want to spam all the users, we want the invites to more precise and we have chosen F0.5 measure specifcally as it gives more importance to precision than recall.
-
-F0.5 score is given by the following formula
+Therefore, accuracy should not be the only metric to evaluate the results of various models and we should consider other baseline metrics such as F measure. In our current use case, we would use our class prediction to send out event invites to users who would potentially attend. As we do not intend to spam all the users, we would like the invites to be more precise and we have chosen F0.5 measure specifically as it gives more importance to precision than recall. F0.5 score is given by the following formula.
 
 <div align="center">
 <img  src="./results/fbeta_eqn.png" border="1"> </div>
