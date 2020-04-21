@@ -124,7 +124,8 @@ For the above reasons, we model this problem as a binary classification problem 
 
 5. ***Event similarity based on previously attended events***
 
-   Analyzing the common attenders between two events might give us hints on how likely a user will attend the second event given that he has attended the first event. Higher number of common attenders would indicate higher similarity between the events and higher likeliness to attend to both the events. In this feature we try to model this event similarity by looking at the common attenders between our current target event and the events our current user has previously attended. For each such pair, we normalize the number of intersecting users by dividing them with the number of attendees from the lower attended event. The average of all such pairs is taken as our similarity score.
+   Analyzing the common attendees between two events might give us hints on how likely a user will attend the second event given that they attended the first event. The higher number of common attendees indicate higher similarity between the events and higher likeliness of users attending both the events. In this feature, we try to model this event similarity by determining the common attendees between our current target event and each of the events our current user has previously attended. For each such pair, we normalize the number of intersecting users by dividing with the number of attendees of the event with a lower number of attendees. The average of all such pairs is considered as our similarity score.  
+   
   
   
 6. ***Sometimes, people just prefer the familiar***
