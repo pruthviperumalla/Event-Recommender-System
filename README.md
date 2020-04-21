@@ -1,22 +1,22 @@
 ## Introduction
 
-Proliferation of the amount of data available in every sector has created an increasing demand for machine learning based systems including recommender systems and they have become quite ubiquitous. Slight variations of recommender systems are currently in use across multiple industries. These systems try to recommend new items to customers/users based on their past preferences and experiences. For example, new restaurants are recommended for someone using a restaurant aggregator application or new products to buy for a customer on an e-commerce application. In this project, we primarily focus on Event recommendation systems that traditionally need different algorithms [1] from an item recommender that recommends books or movies. We explore what techniques best work for event recommendations.
+The proliferation of the amount of data available in every sector has created an increasing demand for machine learning-based systems including recommender systems and they have become quite ubiquitous. Slight variations of recommender systems are currently in use across multiple industries. These systems are algorithms that are aimed at suggesting relevant items to users based on their past preferences and experiences. For example, the Youtube recommender suggesting videos to watch next, an e-commerce application suggesting new products that a customer might be interested to purchase. In this project, we primarily focus on Event recommendation systems which recommend relevant events that the users might be interested to attend. Traditionally, Event based recommender systems need different algorithms [1] compared to an item recommender that recommends books or movies. We explore as to what techniques work best for event recommendations.
 
 ## Dataset
 
 We initially started with an idea to use some practical data from [Atlanta Habitat](http://www.atlantahabitat.org/) but some unexpected delays in obtaining the data made fall back upon a publicly availabe dataset. The [Kaggle Events Dataset](https://www.kaggle.com/c/event-recommendation-engine-challenge) that we used was from an events related anonymous application that hosted a public contest a few years ago. It was spread across different files giving us the choice to pick up custom features and build on top of it. Here is a summary of the dataset components that we used:
 
-1. **Events** - This had data about 3137972 events related information with an event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with this, top 100 most occuring words from all of the event descriptions are taken and their presence checked in each of the descriptions individually. These 100 boolean values are provided for each of the event. Notice the missing location data in the figure below.
+1. **Events** - This had data about 3137972 events related information with an event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with this, top 100 most occuring words from all of the event descriptions are taken and their frequency checked in each of the descriptions individually. These 100 count values are provided for each of the event. Notice the missing location data in the figure below.
 
-   Missing values in events data
+   Figure: Missing values in events data
    ![alt text](./results/GreenEventMSNO.png "Missing values in events data")
 
-   Frequency of occurence of top 50 representative words
+   Figure: Frequency of occurence of top 50 representative words
    ![alt text](./results/wordBarPlot.png "Word Distribution")
 
 2. **Users** -  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
-   Missing values in users data
+   Figure: Missing values in users data
    ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
 
 3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We only have 38202 user id here though.
