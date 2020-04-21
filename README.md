@@ -84,13 +84,12 @@ For the above reasons, we model this problem as a binary classification problem 
 
    Building on top of the above feature, considering only the attendance of current user's friends might give us a more reliable measure of the current user's interest in the event. Hence, we extracted a similar set of features restricting ourselves to consider only the friends of the current user instead of all the users. The following features are extracted in this way. We also added the normalized versions (by the total number of friends) of some of these features as additional features. 
       1. Number of friends who marked "attending" for our event (f7) and normalized (f14)
-      2. Number of friends who marked "no attending" for our event (f8) and normalized (f15)
-      3. Number of friends who marked "may be" for our event (f9) and normalized (f16)
-      4. Number of friends who are invited to the event (f10) and normalized (f17)
-      5. Ratio of number of friends not attending with number of friends attending (f11)
-      6. Ratio of number of friends who might be attending with number of friends attending (f12)
-      7. Ratio of number of friends invited with number of friends attending (f13)
-    
+      2. Number of friends who marked "not attending" for our event (f8) and normalized (f15)
+      3. Number of friends who marked "may be attending" for our event (f9) and normalized (f16)
+      4. Number of friends who were invited to the event (f10) and normalized (f17)
+      5. Ratio of number of friends not attending to the number of friends attending (f11)
+      6. Ratio of number of friends who might be attending to the number of friends attending (f12)
+      7. Ratio of number of friends invited to the number of friends attending (f13) 
    
 3. ***Local convenience***
 
