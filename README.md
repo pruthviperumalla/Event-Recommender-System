@@ -80,7 +80,9 @@ For the above reasons, we model this problem as a binary classification problem 
       5. Ratio of number of users not attending with number of users attending (f4)
       6. Ratio of number of users who might be attending with number of users attending (f5)
       7. Ratio of number of users invited with number of users attending (f6)
-
+   <div>
+   <p><br></p>
+   </div>
 
 2. ***Friend's attendance based metrics***
 
@@ -92,7 +94,9 @@ For the above reasons, we model this problem as a binary classification problem 
       5. Ratio of number of friends not attending with number of friends attending (f11)
       6. Ratio of number of friends who might be attending with number of friends attending (f12)
       7. Ratio of number of friends invited with number of friends attending (f13)
-   
+   <div>
+   <p><br></p>
+   </div> 
 
 3. ***Local convenience***
 
@@ -111,6 +115,9 @@ For the above reasons, we model this problem as a binary classification problem 
    <div align="center">
     <i>User city locations scaled by number of users in a city</i>
    </div>
+   <div>
+   <p><br></p>
+   </div>
 
 4. ***Schedule convenience***
 
@@ -122,11 +129,17 @@ For the above reasons, we model this problem as a binary classification problem 
    <div align="center">
     <i>Time difference between event start time and user notification time</i>
    </div>
+   <div>
+   <p><br></p>
+   </div>
 
 5. ***Event similarity based on previously attended events***
 
    Analyzing the common attenders between two events might give us hints on how likely a user will attend the second event given that he has attended the first event. Higher number of common attenders would indicate higher similarity between the events and higher likeliness to attend to both the events. In this feature we try to model this event similarity by looking at the common attenders between our current target event and the events our current user has previously attended. For each such pair, we normalize the number of intersecting users by dividing them with the number of attendees from the lower attended event. The average of all such pairs is taken as our similarity score.
-
+   <div>
+   <p><br></p>
+   </div>
+   
 6. ***Sometimes, people just prefer the familiar***
    
    If a user is interested in events related to a topic, they may also attend future events related to this topic. We can capture this feature by measuring the similarity between the event in question to the events user attended in the past. For every event, we are also provided a bag of top 100 frequent words constructed from its name and description. We use this bag of words features to cluster together the events. To perform the unsupervised clustering, we use K-Means algorithm. Figure <> shows the elbow curve that is used to determine the optimal number of clusters. However, the elbow is not obvious from the plot. As the total number of events is extremely high (3 million), we chose 200 clusters which is a trade-off between computation time and loss (sum of squared distances).
@@ -142,11 +155,17 @@ For the above reasons, we model this problem as a binary classification problem 
    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://pruthviperumalla.github.io/Event-Recommender-System/cluster.html" height="525" width="100%"></iframe>
    
    Using these clusters, we extract four similarity features one for each of the different interactions user had with the past events. i.e. For the first feature, we measure the similarity between the current event and the events for which user indicated that they were going. Second feature captures the similarity between the event in question to the events which user indicated that they maybe going. Third, similarity is measured between current event and the events for which user indicated that they were not going. Fourth feature captures the similarity between the current event and the events to user was invited. To measure the similarity between an event *e* and a list of events, we take the average of the euclidean distance  between the centroid of the cluster *e* belongs to and the centroids of the clusters of events from the list. 
-
+   <div>
+   <p><br></p>
+   </div>
+   
 7. ***Sometimes, people just like what their friends like***
 
    Users may also attend events whose topics are similar to those that their friends attended. We capture three more features similar to the above features. Specifically, we extract similarity between the current event and the events that user's friends indicated that they were going, maybe going and not going as three different features. 
-
+   <div>
+   <p><br></p>
+   </div>
+   
 8. ***Sometimes, people just prefer the events they were invited to*** 
 
    This is a boolean feature indicating whether the user was invited to the event.
