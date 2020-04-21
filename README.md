@@ -227,7 +227,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
    <div align="center">
    <img  src="./results/rf_feat_imp.png"> </div>
 
-   <div align = "center"> <i> Figure 10: Relative Feature Importances </i> </div>
+   <div align = "center"> <i> Figure 11: Relative Feature Importances </i> </div>
 
    As seen from the figure above, time to event is the most important feature that determines whether a user will be interested in attending an event or not. The performance of the Random Forest is the best out of all supervised classifiers we tried. 
 
@@ -264,9 +264,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
    To further improve the performance, we experimented with an ensemble of several of the above models we implemented. We obtained the best validation as well as the test results with an ensemble of Random Forest classifier and KNN classifier. These two classifiers are ensembled by the hard(majority) voting mechanism with 0.9 weight for Random Forest and 0.1 weight for KNN. In terms of F0.5 score, the ensemble model shows 2.3% improvement over the Random Forest classifier and 4.8% improvement over the KNN classifier.
 
 
-
-
-Here is a comparison of test accuracy and test fbeta scores on various models that we trained.
+Here is a comparison of test accuracy and test fbeta scores of various models that we trained.
 
 
 <style>
@@ -354,11 +352,11 @@ tr:nth-child(even) {
 <div class="image123">
     <div class="imgContainer">
         <img src="./results/accuracy.png" height="300" width="400">
-        <div align = "center"> <i> Figure: Accuracy plot </i> </div>
+        <div align = "center"> <i> Figure 12: Train vs Test Accuracy plot </i> </div>
     </div>
     <div>
         <img src="./results/fbeta.png" height="300" width="400">
-        <div align = "center"> <i> Figure: Fbeta plot </i> </div>
+        <div align = "center"> <i> Figure 12: Train vs Test Fbeta plot </i> </div>
     </div>
 </div>
 
