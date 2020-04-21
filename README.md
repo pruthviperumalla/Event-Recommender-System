@@ -79,6 +79,7 @@ For the above reasons, we model this problem as a binary classification problem 
       5. Ratio of number of users not attending to the number of users attending (f4)
       6. Ratio of number of users who might be attending to be number of users attending (f5)
       7. Ratio of number of users invited to the number of users attending (f6)
+<br>
 
 2. ***Friends' attendance based metrics***
 
