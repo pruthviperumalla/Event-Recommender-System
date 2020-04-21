@@ -13,15 +13,19 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <i>Figure 1: Missing values in events data</i>
    </div>
 
-   Figure: Frequency of occurence of top 50 representative words
    ![alt text](./results/wordBarPlot.png "Word Distribution")
+    <div align="center">
+    <i>Figure 2: Frequency distribution of top 50 words across events' descriptions</i>
+   </div>
 
 2. **Users** -  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
-   Figure: Missing values in users data
    ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
+   <div align="center">
+    <i>Figure 3: Missing values in users data</i>
+   </div>
 
-3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We only have 38202 user id here though.
+3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We have this information for only 38202 users here.
 
    Figure: Distribution of number of friends among given users
    ![alt text](./results/friendsDist.png "Friends distribution among users")
