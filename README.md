@@ -194,7 +194,6 @@ In this phase, we use the above extracted features to learn a classifier that pr
 To generate recommendations for a user, we consider every event from the given closed list and predict if user is interested in it. The list of events that the system classifies as interested are then recommended to the user.
 
 ##  Experiments & Results
-
 ### Evaluation Metrics
 The number of training samples available for each class is represented below. 
 
@@ -209,7 +208,6 @@ Therefore, accuracy should not be the only metric to evaluate the results of var
 
 <div align="center">
 <img  src="./results/fbeta_eqn.png" border="1"> </div>
-
 
 ### Baseline strategy
 
