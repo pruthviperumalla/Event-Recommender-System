@@ -149,13 +149,18 @@ For the above reasons, we model this problem as a binary classification problem 
    <img  src="./results/heatmap.png"> </div>
    <div align = "center"><i>Figure 3: Correlation Matrix</i> </div>
       
-- how missing values are handled
+#### Handling missing values:
+
+Many of our features ended up with missing values as some of the event and user ids from the training data do not have a corresponding row in the event detail or user detail tables. We filled this missing data with a single forward fill followed a backward fill to handle the edge cases.
+WRITE MORE
+
 
 ### 2. Interest Prediction
 In this phase, we use the above extracted features to learn a classifier that predicts if a user is interested in a given event. We experimented with several supervised binary classification models with interested and not interested as the classes. Experiments performed with each of these models and results obtained are discussed in detail in the next section.
 
 ### 3. Generation of Recommendations
 To generate recommendations for a user, we consider every event from the given closed list and predict if user is interested in it. The list of events that the system classifies as interested are then recommended to the user.
+
 
 ##  Experiments & Results
 
@@ -171,13 +176,15 @@ metrics such as F measure. In our current use case, we would use our class predi
 F0.5 score is given by the following formula
 
 
-### Baseline strategy:
+#### Baseline strategy:
 
 1. **Accuracy:** For accuracy, the baseline strategy would be to always predict the most frequent class as that would yield the highest possible accuracy.
 
 2. **F0.5 score:** Precision and recall always counter balance each other. Predicting the minority class (not interested in our case) would give a good lower 
 bound for F0.5 score [2]. 
 
+
+#### Model Training:
 
 Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
 
@@ -203,13 +210,13 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 - **Neural Network**
 
    We used a simple fully connected multi layer perceptron to train our network. To decide on the number of hidden layers and number of nodes in each layer, we experimented with various values and started with the intuitive rule that the number of nodes in a hidden layer should be between the number of input nodes (31, in our case) and the number of output nodes(2, in our case).
-   
    | No. of nodes in each hidden layer | Accuracy  | Fbeta Score  |
    | 15 | 0.736038961038961  | 0.41358293426208087  |
    | 20, 10 | 0.7126623376623377  | 0.396498455200824  |
    | 25 | 0.7321428571428571  | 0.4554455445544554  |
    | 30 | 0.7243506493506493  | 0.4235211760588029  |
-   
+
+
 - **Support Vector Machine**
 
    For Support Vector Machine, we tuned the hyperparameter C which controls the regularization strength of the model. We found out the SVM gives the best performance when the regularization is set to around 2000. We also tried different kernels such as "Radial Basis Kernel", "Linear Kernel" and "Polynomial Kernel" and the model has the highest test accuracy when using "Radial Basis Kernel".
@@ -222,8 +229,10 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 
    To further improve the performance, we experimented with an ensemble of several of the above models we implemented. We obtained the best validation as well as the test results with an ensemble of Random Forest classifier and KNN classifer. These two classifiers are ensembled by the hard(majority) voting mechanism with 0.9 weight for Random Forest and 0.1 weight for KNN. In terms of F0.5 score, the ensemble model shows 2.6% improvement over the Random Forest classifier and 4.8% improvement over the KNN classifier.
 
-- VALUES ARE UPDATED
 
+#### Results and analysis:
+
+<center>
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
 | Baseline | 0.731718 | 0.31416400425985086 |
@@ -234,10 +243,8 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 | Neural Net | 0.7321428571428571 | 0.4554455445544554 |
 | Logistic Regression | 0.7357142857142858 | 0.18850987432675045 |
 | Ensemble Learning | 0.7818181818181819 | 0.5642923219241444 |
+</center>
 
-
-- results plots
-- analysis
 
 ## Conclusion and Future Work
 
