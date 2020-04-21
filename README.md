@@ -297,7 +297,7 @@ tr:nth-child(even) {
 }
 </style>
 
-<table>
+<table align="center">
   <tr>
     <th>Model</th>
     <th>Accuracy</th>
