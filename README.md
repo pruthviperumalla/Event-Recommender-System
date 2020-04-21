@@ -188,10 +188,6 @@ Below is the heatmap for the correlation between the features.
    <img  src="./results/heatmap.png"> </div>
    <div align = "center"><i>Figure: Correlation Matrix</i> </div>
        
-#### Handling missing values:
-
-Many of our features ended up with missing values as some of the event and user ids from the training data do not have a corresponding row in the event detail or user detail tables. We filled this missing data with a single forward fill followed a backward fill to handle the edge cases.
-WRITE MORE
 
 ### 2. Interest Prediction
 In this phase, we use the above extracted features to learn a classifier that predicts if a user is interested in a given event. We experimented with several supervised binary classification models with interested and not interested as the classes. Experiments performed with each of these models and results obtained are discussed in detail in the next section.
