@@ -103,6 +103,10 @@ For the above reasons, we model this problem as a binary classification problem 
     <i>Figure 5: Event cities from training data scaled by number of events in a city</i>
    </div>
    
+   <div>
+   <p><br></p>
+   </div>
+   
    <div align="center" style="align-items: center;justify-content: center;">
     <img  src="./results/location_users.png" width="650">
    </div>
