@@ -67,7 +67,7 @@ For the above reasons, we model this problem as a binary classification problem 
 
 ### 1. Feature Extraction
 
-  In this phase, we perform feature engineering to identify and extract features that drive the prediction of user's interest in an event.  For a user and event pair provided in the user-event interests file, following are the features extracted. 
+  In this phase, we perform feature engineering to identify and extract features that drive the prediction of user's interest in an event.  First, we handle the missing values by imputing the missing numbers with zeros and by imputing other missing values with forward fill followed by backward fill. For a user and event pair provided in the user-event interests file, following are the features extracted. 
 
 1. ***Event attendance based metrics***
 
