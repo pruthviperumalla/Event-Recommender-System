@@ -207,7 +207,7 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
    | No. of nodes in each hidden layer | Accuracy  | Fbeta Score  |
    | 15 | 0.736038961038961  | 0.41358293426208087  |
    | 20, 10 | 0.7126623376623377  | 0.396498455200824  |
-   | 25 | 0.7337662337662337  | 0.4446038006453926  |
+   | 25 | 0.7321428571428571  | 0.4554455445544554  |
    | 30 | 0.7243506493506493  | 0.4235211760588029  |
    
 - **Support Vector Machine**
@@ -222,18 +222,18 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 
    To further improve the performance, we experimented with an ensemble of several of the above models we implemented. We obtained the best validation as well as the test results with an ensemble of Random Forest classifier and KNN classifer. These two classifiers are ensembled by the hard(majority) voting mechanism with 0.9 weight for Random Forest and 0.1 weight for KNN. In terms of F0.5 score, the ensemble model shows 2.6% improvement over the Random Forest classifier and 4.8% improvement over the KNN classifier.
 
-- VALUES NEED TO BE UPDATED!
+- VALUES ARE UPDATED
 
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
-| Gaussian Naive Bayes | 0.7204545454545455 | 0.2902155887230514 |
-| Random Forest | 0.7746753246753246 | 0.5323383084577115 |
-| KNN | 0.7616883116883116 | 0.5085435313262815 |
-| SVM | 0.699025974025974 | 0.3810930576070901 |
-| Neural Net | 0.7327922077922078 | 0.4452296819787986 |
-| Logistic Regression | 0.7334415584415584 | 0.17395182872435327 |
-| El | 0.7772727272727272 | 0.5445304937076476 |
-| Ensemble Learning | 0.775974025974026 | 0.5396902226524685 |
+| Baseline | 0.731718 | 0.31416400425985086 |
+| Gaussian Naive Bayes | 0.7230519480519481 | 0.27206771463119706 |
+| Random Forest | 0.775974025974026 | 0.5416272469252602 |
+| KNN | 0.7665584415584416 | 0.5161854768153981 |
+| SVM | 0.6983766233766234 | 0.3951277480689246 |
+| Neural Net | 0.7321428571428571 | 0.4554455445544554 |
+| Logistic Regression | 0.7357142857142858 | 0.18850987432675045 |
+| Ensemble Learning | 0.7818181818181819 | 0.5642923219241444 |
 
 
 - results plots
