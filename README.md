@@ -222,14 +222,14 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
 - **Random Forest**
 
-   After tuning hyper parameters using k folds cross validation, we got the best results for an ensemble of 100 trees with depth limited to 15, gini impurity as the criterion to split, and with bootstrapping of the total number of data points drawn as samples and square root of the total number of features considered for the construction of a tree. The relative feature importances determined by the Random Forest model are shown in the figure <#>.
+   After tuning hyperparameters using k folds cross-validation, we got the best results for an ensemble of 100 trees with depth limited to 15, Gini impurity as the criterion to split, and with bootstrapping of the total number of data points drawn as samples and the square root of the total number of features considered for the construction of a tree. The relative feature importances determined by the Random Forest model are shown in figure 10.
 
    <div align="center">
    <img  src="./results/rf_feat_imp.png"> </div>
 
-   <div align = "center"> <i> Figure 3: Relative Feature Importances </i> </div>
+   <div align = "center"> <i> Figure 10: Relative Feature Importances </i> </div>
 
-   As seen from the figure above, time to event is the most important feature that determines whether a user will be interested in attending an event or not. The peformance of the Random Forest is the best out of all supervised classifiers we tried. 
+   As seen from the figure above, time to event is the most important feature that determines whether a user will be interested in attending an event or not. The performance of the Random Forest is the best out of all supervised classifiers we tried. 
 
 - **K Nearest Neighbors**
 
