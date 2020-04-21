@@ -82,7 +82,7 @@ For the above reasons, we model this problem as a binary classification problem 
 
 2. ***Friends' attendance based metrics***
 
-   Building on top of the above feature, looking at only the attendance of current user's friends might give us a stronger measure of current user's interests with that of the event. Hence, we extracted a similar set of features resitrcting ourselves to only look at the friends of current user instead of everyone. The following features are extracted in this way and we also added the normalized version (by total number of friends) of some of these features as a separate feature. 
+   Building on top of the above feature, considering only the attendance of current user's friends might give us a more reliable measure of the current user's interest in the event. Hence, we extracted a similar set of features restricting ourselves to consider only the friends of the current user instead of all the users. The following features are extracted in this way. We also added the normalized versions (by the total number of friends) of some of these features as additional features. 
       1. Number of friends who marked "attending" for our event (f7) and normalized (f14)
       2. Number of friends who marked "no attending" for our event (f8) and normalized (f15)
       3. Number of friends who marked "may be" for our event (f9) and normalized (f16)
