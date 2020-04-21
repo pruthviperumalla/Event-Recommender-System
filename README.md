@@ -218,7 +218,7 @@ Therefore, accuracy should not be the only metric to evaluate the results of var
 
 ### Model results and analysis
 
-Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
+Our train test split is 80:20. To avoid overfitting and to tune the hyperparameters, we used 5-folds cross-validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase.
 
 - **Random Forest**
 
