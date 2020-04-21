@@ -94,7 +94,7 @@ For the above reasons, we model this problem as a binary classification problem 
    
 3. ***Local convenience***
 
-   Users are more likely to attend an event that is happening nearby and one that is preferably in the same city. From the user and event details, we extract two boolean features. The first one checks if the user and event are in the same city and the second one checks if they are in the same country. For a better understanding we plotted the all the city locations where events are happening and where the user are located in a world map. 
+   Users are more likely to attend an event that is happening nearby and one that is preferably in the same city. From the user and event details, we extract two boolean features. The first one indicates whether the user and the event are in the same city and the second one indicates whether they are in the same country. Figures 5 and 6 show all the city locations where the events are happening and where the users are located on a world map.
    
    <div align="center" style="align-items: center;justify-content: center;">
     <img  src="./results/location_events.png" width="650" >
