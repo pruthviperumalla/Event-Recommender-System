@@ -249,6 +249,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
    | 20, 10 | 0.7126623376623377  | 0.396498455200824  |
    | 25 | 0.7321428571428571  | 0.4554455445544554  |
    | 30 | 0.7243506493506493  | 0.4235211760588029  |
+   
    *Table 1: Accuracy and Fbeta score of neural network with varying number of nodes and hidden layers*
    
 
