@@ -261,6 +261,8 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 
 #### Model results and analysis:
 
+Here is a comparison of test accuracy and test fbeta scores on various models that we trained.
+
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
 | Baseline | 0.731718 | 0.31416400425985086 |
@@ -271,6 +273,10 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
 | Neural Net | 0.7321428571428571 | 0.4554455445544554 |
 | Logistic Regression | 0.7357142857142858 | 0.18850987432675045 |
 | Ensemble Learning | 0.7818181818181819 | 0.5642923219241444 |
+
+Accuracy            |  F0.5 score
+:-------------------------:|:-------------------------:
+![alt text](./results/accuracy.png "accuracy")  |  ![alt text](./results/fbeta.png "fbeta")
 
 
 ## Conclusion and Future Work
