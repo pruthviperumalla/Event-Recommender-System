@@ -184,7 +184,7 @@ We also attempted looking at the correlation between the various features that w
       
    <div align="center">
    <img  src="./results/heatmap.png"> </div>
-   <div align = "center"><i>Figure: Correlation Matrix</i> </div>
+   <div align = "center"><i>Figure 9: Correlation Matrix</i> </div>
        
 
 ### 2. Interest Prediction
@@ -199,7 +199,7 @@ The number of traning samlpes that we have from each of the class is represented
 
 <div align="center">
 <img  src="./results/classImbalance.png"> </div>
-<div align = "center"><i>Figure: Class representation in training data</i> </div>
+<div align = "center"><i>Figure 10: Class representation in training data</i> </div>
 
 
 This shows us there is a class imbalance where the number of examples from "not interested" class is almost three times the number of samples from interested class. In such situations of class imbalance, a naive classifier that always predicts a "not interested" class would yield very high accuracies that would sometimes be greater than our trained model's accuracy. 
