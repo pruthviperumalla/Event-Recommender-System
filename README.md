@@ -257,7 +257,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
 - **Gaussian Naive Bayes**
 
-   Peformance of Gaussian Naive Bayes model is below the baseline model in terms of F0.5 score. The naive assumption that the every pair of features is conditionally independent may not hold in our case. Also, Naive Bayes gives equal importance to all the fields and does not discrimate betweeen the features. These may be reasons for its low performance.
+   The performance of the Gaussian Naive Bayes model is below the baseline model in terms of F0.5 score. The naive assumption that every pair of features is conditionally independent may not hold in our case. Also, Naive Bayes gives equal importance to all the fields and does not discriminate between the features. These may be the reasons for its low performance.
 
 - **Ensemble Classifier**
 
