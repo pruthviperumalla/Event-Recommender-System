@@ -179,6 +179,9 @@ metrics such as F measure. In our current use case, we would use our class predi
 
 F0.5 score is given by the following formula
 
+<div align="center">
+<img  src="./results/fbeta.png"> </div>
+
 
 #### Baseline strategy:
 
@@ -235,7 +238,7 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
    To further improve the performance, we experimented with an ensemble of several of the above models we implemented. We obtained the best validation as well as the test results with an ensemble of Random Forest classifier and KNN classifer. These two classifiers are ensembled by the hard(majority) voting mechanism with 0.9 weight for Random Forest and 0.1 weight for KNN. In terms of F0.5 score, the ensemble model shows 2.6% improvement over the Random Forest classifier and 4.8% improvement over the KNN classifier.
 
 
-#### Results and analysis:
+#### Model results and analysis:
 
 | Model | Accuracy  | Fbeta Score  |
 | :---:   | :-: | :-: |
