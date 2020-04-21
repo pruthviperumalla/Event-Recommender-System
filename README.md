@@ -163,9 +163,9 @@ For the above reasons, we model this problem as a binary classification problem 
       
       Age may be an important feature considering that the social goals of humans vary with age. We extract this feature from the year of birth provided for a user.
       
-#### Handling missing values:
+#### Feature Correlations:
 
-We also tried looking at the correlation between various features that we extracted. As expected, features such as "same_city" and "same_country",  ratio features that are based on same metrics such as f7,f8,f9 and cluster based similarity features are highly correlated. Apart from these that are correlated because of the method in which we extracted these features, the "invited" and "yes" features look highly correalted. Intuitively this is expected as the more invites we send for our event, the more "yes" responses we might get. 
+We also tried looking at the correlation between various features that we extracted. As expected, features such as "same_city" and "same_country",  ratio based features that are built on same metrics such as f7,f8,f9 and cluster based similarity features are highly correlated. Apart from these that are correlated because of the method in which we extracted these features, the "invited" and "yes" features look highly correalted. Intuitively this is also expected as the more invites we send for our event, the more "yes" responses we might get. 
 
 Below is the heatmap for the correlation between the features. 
       
