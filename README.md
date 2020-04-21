@@ -176,7 +176,7 @@ For the above reasons, we model this problem as a binary classification problem 
 
 11. ***Age influences social goals*** 
       
-      Age may be an important feature considering that the social goals of humans vary with age. We extract this feature from the year of birth provided for a user.
+      Age may be an important feature considering that the social goals of humans vary with age. We extract this feature from the year of birth provided for the user.
       
 #### Feature Correlations:
 
