@@ -4,7 +4,7 @@ The proliferation of the amount of data available in every sector has created an
 
 ## Dataset
 
-We initially started with an idea to use some practical data from [Atlanta Habitat](http://www.atlantahabitat.org/) but some unexpected delays in obtaining the data made fall back upon a publicly availabe dataset. The [Kaggle Events Dataset](https://www.kaggle.com/c/event-recommendation-engine-challenge) that we used was from an events related anonymous application that hosted a public contest a few years ago. It was spread across different files giving us the choice to pick up custom features and build on top of it. Here is a summary of the dataset components that we used:
+We initially started with the idea to use events and volunteer data from [Atlanta Habitat](http://www.atlantahabitat.org/), a non-profit organization. But, some unexpected delays in obtaining the data made us fall back on a publicly available dataset. The [Kaggle Events Dataset](https://www.kaggle.com/c/event-recommendation-engine-challenge) that we used is from an events related anonymous application that hosted a public contest a few years ago. The data is varied and spread across different files giving us the chance to pick up custom features and build on top of them. Here is a summary of the dataset components that we used:
 
 1. **Events** - This had data about 3137972 events related information with an event id, event creator id, event start time and event location details such as city, state, country, zip, latitude, longitude. Along with this, top 100 most occuring words from all of the event descriptions are taken and their frequency checked in each of the descriptions individually. These 100 count values are provided for each of the event. Notice the missing location data in the figure below.
 
@@ -21,13 +21,14 @@ We initially started with an idea to use some practical data from [Atlanta Habit
 
 3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We only have 38202 user id here though.
 
-   Figure: Any graphs on friends
+   Figure: Distribution of number of friends among given users
+   ![alt text](./results/friendsDist.png "Friends distribution among users")
 
 4. **Event attendees** -  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
-            - "yes" gives us the list of users who marked as going for this event
-            - "maybe" gives us the users who marked as maybe going
-            - "no" gives us the list of users who marked as not going
-            - "invited" gives us the list of users who were invited to the event
+      - "yes" gives us the list of users who marked as going for this event
+      - "maybe" gives us the users who marked as maybe going
+      - "no" gives us the list of users who marked as not going
+      - "invited" gives us the list of users who were invited to the event
             
 5. **User-Event interests** - For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
 
