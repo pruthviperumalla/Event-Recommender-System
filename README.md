@@ -18,27 +18,27 @@ We initially started with the idea to use events and volunteer data from [Atlant
     <i>Figure 2: Frequency distribution of top 50 words across events' descriptions</i>
    </div>
    <br>
-2. **Users** -  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
+2. **Users**:  Here, we have data about 38209 users in the form of their ids, user locale, birthyear, gender, timestamp at which user joined, location and timezone. Notice the missing location data in the figure below.
 
    ![alt text](./results/GreenUserMSNO.png "Missing values in users data")
    <div align="center">
     <i>Figure 3: Missing values in users data</i>
    </div>
    <br>
-3. **User friends** - This contains information in the form of a user id and the corresponding list of user ids who are friends of the user. This social data is provided for only 38202 users.  EXPLAIN THE FIGURE
+3. **User friends**: This contains information in the form of a user id and the corresponding list of user ids who are friends of the user. This social data is provided for only 38202 users.  EXPLAIN THE FIGURE
 
    ![alt text](./results/friendsDist.png "Friends distribution among users")
    <div align="center">
     <i>Figure 4: Distribution of number of friends among given users </i>
    </div>
    <br>
-4. **Event attendees** -  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
+4. **Event attendees**:  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
       - "yes" gives us the list of users who marked as going for this event
       - "maybe" gives us the users who marked as maybe going
       - "no" gives us the list of users who marked as not going
       - "invited" gives us the list of users who were invited to the event
     <br>
-5. **User-Event interests** - For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
+5. **User-Event interests**: For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
 
 ## Approach
 
