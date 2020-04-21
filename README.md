@@ -213,8 +213,7 @@ Therefore, accuracy should not be the only metric to evaluate the results of var
 
 1. **Accuracy:** For accuracy, the baseline strategy would be to always predict the most frequent class as that would yield the highest possible accuracy.
 
-2. **F0.5 score:** Precision and recall always counter balance each other. Predicting the minority class (not interested in our case) would give a good lower 
-bound for F0.5 score [2]. 
+2. **F0.5 score:** Precision and recall always counter balance each other. Always predicting the minority class ("not interested" in our case) would give a good lower bound for F0.5 score [2]. 
 
 
 ### Model results and analysis
