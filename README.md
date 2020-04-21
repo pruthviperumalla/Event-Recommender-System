@@ -253,7 +253,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
 - **Support Vector Machine**
 
-   For Support Vector Machine, we tuned the hyperparameter C which controls the regularization strength of the model. We found out the SVM gives the best performance when the regularization is set to around 2000. We also tried different kernels such as "Radial Basis Kernel", "Linear Kernel" and "Polynomial Kernel" and the model has the highest test accuracy when using "Radial Basis Kernel".
+   For Support Vector Machine, we tuned the hyperparameter C which controls the regularization strength of the model. We found out the SVM gives the best performance when the regularization is set to around 2000. We also tried different kernels such as “Radial Basis Kernel”, “Linear Kernel” and “Polynomial Kernel” and the model performs above baseline and has the highest test accuracy when using “Radial Basis Kernel”.
 
 - **Gaussian Naive Bayes**
 
