@@ -21,13 +21,14 @@ We initially started with an idea to use some practical data from [Atlanta Habit
 
 3. **User friends** - For each of the user id mentioned in Users, we have a list of user ids who are his/her friends. We only have 38202 user id here though.
 
-   Figure: Any graphs on friends
+   Figure: Distribution of number of friends among given users
+   ![alt text](./results/friendsDist.png "Friends distribution among users")
 
 4. **Event attendees** -  For some of the events mentioned in Events (24144 events to be precise), we have fours user id lists
-            - "yes" gives us the list of users who marked as going for this event
-            - "maybe" gives us the users who marked as maybe going
-            - "no" gives us the list of users who marked as not going
-            - "invited" gives us the list of users who were invited to the event
+      - "yes" gives us the list of users who marked as going for this event
+      - "maybe" gives us the users who marked as maybe going
+      - "no" gives us the list of users who marked as not going
+      - "invited" gives us the list of users who were invited to the event
             
 5. **User-Event interests** - For 15398 event-user pairs, we have information on whether this user was invited to the event, timestamp at which this user saw the notification for this event and also two boolean values indicating whether this user markers "interested" or "not interested" for the event.
 
