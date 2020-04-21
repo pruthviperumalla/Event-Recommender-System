@@ -341,9 +341,16 @@ tr:nth-child(even) {
    </table>
 </div>
 
-Accuracy            |  F0.5 score
-:-------------------------:|:-------------------------:
-![alt text](./results/accuracy.png "accuracy")  |  ![alt text](./results/fbeta.png "fbeta")
+<div class="image123">
+    <div class="imgContainer">
+        <img src="./results/accuracy.png" height="400" width="400">
+        <p>Figure: Accuracy plot</p>
+    </div>
+    <div>
+        <img src="./results/fbeta.png" height="400" width="400">
+        <p>Figure: Fbeta score plot</p>
+    </div>
+</div>
 
 
 ## Conclusion and Future Work
