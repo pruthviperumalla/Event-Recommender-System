@@ -91,9 +91,8 @@ For the above reasons, we model this problem as a binary classification problem 
       5. Ratio of number of friends not attending with number of friends attending (f11)
       6. Ratio of number of friends who might be attending with number of friends attending (f12)
       7. Ratio of number of friends invited with number of friends attending (f13)
-   <div>
-   <p><br></p>
-   </div>
+   
+   
 
 3. ***Local convenience***
 
