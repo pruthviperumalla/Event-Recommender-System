@@ -237,7 +237,7 @@ Our train test split is 80:20. To avoid overfitting and to tune the hyperparamet
 
 - **Logistic Regression**
 
-   In logistic regression, we first used a standard scaler to normalize all the features to remove the dominance of higher magnitude features such as "Schedule convenience". In the actual model, we used a l2 regularizer with a regularization strength of 1.0 to train. We also tried tuning the regularization strength hyperparameter but it was not effecting the validation accuracy significantly.
+   In logistic regression, we first used a standard scaler to normalize all the features to remove the dominance of higher magnitude features such as "Schedule convenience". In the actual model, we used an l2 regularizer with a regularization strength of 1.0 to train. We also tried tuning the regularization strength hyperparameter but it was not affecting the validation accuracy significantly.
 
 - **Neural Network**
 
