@@ -195,7 +195,7 @@ To generate recommendations for a user, we consider every event from the given c
 
 ##  Experiments & Results
 
-#### Evaluation Metrics
+### Evaluation Metrics
 The number of training samples available for each class is represented below. 
 
 <div align="center">
@@ -211,7 +211,7 @@ Therefore, accuracy should not be the only metric to evaluate the results of var
 <img  src="./results/fbeta_eqn.png" border="1"> </div>
 
 
-#### Baseline strategy:
+### Baseline strategy
 
 1. **Accuracy:** For accuracy, the baseline strategy would be to always predict the most frequent class as that would yield the highest possible accuracy.
 
@@ -219,7 +219,7 @@ Therefore, accuracy should not be the only metric to evaluate the results of var
 bound for F0.5 score [2]. 
 
 
-#### Model Training:
+### Model results and analysis
 
 Our train test split is 80:20. To avoid overfitting and tune the hyperparameters, we used 5-folds cross validation on the training split. Below, we discuss the experiments, results and analysis of the various models we trained in the interest prediction phase. 
 
@@ -266,7 +266,7 @@ Our train test split is 80:20. To avoid overfitting and tune the hyperparameters
    To further improve the performance, we experimented with an ensemble of several of the above models we implemented. We obtained the best validation as well as the test results with an ensemble of Random Forest classifier and KNN classifer. These two classifiers are ensembled by the hard(majority) voting mechanism with 0.9 weight for Random Forest and 0.1 weight for KNN. In terms of F0.5 score, the ensemble model shows 2.6% improvement over the Random Forest classifier and 4.8% improvement over the KNN classifier.
 
 
-#### Model results and analysis:
+
 
 Here is a comparison of test accuracy and test fbeta scores on various models that we trained.
 
